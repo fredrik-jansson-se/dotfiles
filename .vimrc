@@ -18,3 +18,5 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'Valloric/YouCompleteMe'
+
+filetype plugin indent on  " required for vundle
