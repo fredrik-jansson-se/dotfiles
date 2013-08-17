@@ -1,0 +1,6 @@
+bind / eval "scrollback 0" "scrollback 15000"
+escape ^Bb
+hardstatus alwayslastline "%w"
+startup_message off
+defscrollback 30000
+
