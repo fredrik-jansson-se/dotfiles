@@ -24,3 +24,6 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on  " required for vundle
+
+set hlsearch " highlight search results
+set is " incsearch, i.e. show partial matches when typing
