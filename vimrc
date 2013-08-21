@@ -14,3 +14,6 @@ set shiftwidth=4
 set expandtab
 
 set number " show linenumbers
+
+set backupdir=/tmp/
+set directory=/tmp/
