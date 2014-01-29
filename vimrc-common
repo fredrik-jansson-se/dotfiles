@@ -1,6 +1,23 @@
 set hlsearch " highlight search results
 set is " incsearch, i.e. show partial matches when typing
 
+"=====[ Highlight matches when jumping to next ]=============
+" Commented out since search became really slow
+"nnoremap <silent> n   n:call HLNext(0.4)<cr>
+"nnoremap <silent> N   N:call HLNext(0.4)<cr>
+"
+"function! HLNext (blinktime)
+"    highlight WhiteOnRed ctermfg=red ctermbg=white
+"    let [bufnum, lnum, col, off] = getpos('.')
+"    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+"    let target_pat = '\c\%#'.@/
+"    let ring = matchadd('WhiteOnRed', target_pat, 101)
+"    redraw
+"    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+"    call matchdelete(ring)
+"    redraw
+"endfunction
+
 " Indent 4 spaces
 set smartindent
 set tabstop=4
@@ -24,5 +41,15 @@ nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
+"====[ Swap : and ; to make colon commands easier to type ]======
 nnoremap ; :
 nnoremap : ;
+
+"====[ Swap v and CTRL-V, because Block mode is more useful that Visual mode ==
+
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
+
