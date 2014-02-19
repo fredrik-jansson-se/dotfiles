@@ -1,22 +1,27 @@
-set hlsearch " highlight search results
-set is " incsearch, i.e. show partial matches when typing
+syntax on
 
-"=====[ Highlight matches when jumping to next ]=============
-" Commented out since search became really slow
-"nnoremap <silent> n   n:call HLNext(0.4)<cr>
-"nnoremap <silent> N   N:call HLNext(0.4)<cr>
-"
-"function! HLNext (blinktime)
-"    highlight WhiteOnRed ctermfg=red ctermbg=white
-"    let [bufnum, lnum, col, off] = getpos('.')
-"    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-"    let target_pat = '\c\%#'.@/
-"    let ring = matchadd('WhiteOnRed', target_pat, 101)
-"    redraw
-"    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-"    call matchdelete(ring)
-"    redraw
-"endfunction
+" Vundle
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" :BundleList
+" :BundleInstall
+set nocompatible 
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+
+filetype plugin indent on  " required for vundle
+
+" CtrlP settings
+let g:ctrlp_working_path_mode= 'a'
+
+
+set is " incsearch, i.e. show partial matches when typing
 
 " Indent 4 spaces
 set smartindent
