@@ -37,10 +37,10 @@ set directory=/tmp/
 set bs=2 " handle backspace
 
 " Tab navigation
-nnoremap <C-h>  :tabfirst<CR>
-nnoremap <C-k>  :tabnext<CR>
-nnoremap <C-j>  :tabprev<CR>
-nnoremap <C-l>  :tablast<CR>
+nnoremap <C-k>  :tabfirst<CR>
+nnoremap <C-l>  :tabnext<CR>
+nnoremap <C-h>  :tabprev<CR>
+nnoremap <C-j>  :tablast<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
