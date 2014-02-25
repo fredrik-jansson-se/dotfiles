@@ -24,7 +24,8 @@ set is " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
 
 " Status bar
-set statusline='%F%m%r%h%w\ [%p%%]\ [LEN=%L]'
+set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
+set laststatus=2
 
 " Indent 4 spaces
 set smartindent
@@ -37,7 +38,7 @@ set number " show linenumbers
 set backupdir=/tmp/
 set directory=/tmp/
 
-set bs=2 " handle backspace
+set backspace=indent,eol,start
 
 " Tab navigation
 nnoremap <C-k>  :tabfirst<CR>
