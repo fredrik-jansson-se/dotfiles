@@ -14,11 +14,15 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on  " required for vundle
 
 " CtrlP settings
 let g:ctrlp_working_path_mode= 'a'
+
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 set is " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
