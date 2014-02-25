@@ -20,8 +20,11 @@ filetype plugin indent on  " required for vundle
 " CtrlP settings
 let g:ctrlp_working_path_mode= 'a'
 
-
 set is " incsearch, i.e. show partial matches when typing
+set hlsearch " hightligh searches
+
+" Status bar
+set statusline='%F%m%r%h%w\ [%p%%]\ [LEN=%L]'
 
 " Indent 4 spaces
 set smartindent
