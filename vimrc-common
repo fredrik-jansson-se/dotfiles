@@ -70,3 +70,6 @@ nnoremap <C-V>     v
 vnoremap    v   <C-V>
 vnoremap <C-V>     v
 
+" Fix indent of public/private/protected in classes
+set cinoptions=g0
+
