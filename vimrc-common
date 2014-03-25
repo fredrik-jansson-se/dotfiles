@@ -31,9 +31,9 @@ set hlsearch " hightligh searches
 set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
 set laststatus=2
 
-"====[ Make the 81st column stand out ]====================
+"====[ Make the 121st column stand out ]====================
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 " Indent 4 spaces
 set smartindent
