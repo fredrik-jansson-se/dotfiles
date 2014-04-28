@@ -26,6 +26,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 set is " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
+set ignorecase
+set smartcase
 
 " Status bar
 set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
