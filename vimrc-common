@@ -44,6 +44,7 @@ set shiftwidth=4
 set expandtab
 
 set number " show linenumbers
+set nowrap " no wrapping
 
 set backupdir=/tmp/
 set directory=/tmp/
@@ -74,4 +75,9 @@ vnoremap <C-V>     v
 
 " Fix indent of public/private/protected in classes
 set cinoptions=g0
+
+" Map F4 to search in files
+nnoremap <F4> :execute 'grep -r ' . expand('<cword>') . ' *'<CR>
+nnoremap <F3> :cn<CR>
+
 
