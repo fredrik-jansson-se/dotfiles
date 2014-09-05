@@ -2,20 +2,25 @@ syntax on
 
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" :BundleList
-" :BundleInstall
+" :PluginList
+" :PluginInstall
 set nocompatible 
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Plugin 'fatih/vim-go'
+Plugin 'jimenezrick/vimerl'
+Plugin 'Valloric/YouCompleteMe'
 
+call vundle#end()
 filetype plugin indent on  " required for vundle
 
 " CtrlP settings

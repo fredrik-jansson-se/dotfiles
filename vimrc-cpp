@@ -6,8 +6,6 @@ source ~/dotfiles/vimrc-common
 " My Bundles here:
 "
 " original repos on github
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
 
 let g:ycm_extra_conf_globlist = ['~/srv_trunk/*']
 
