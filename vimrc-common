@@ -16,9 +16,9 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Plugin 'fatih/vim-go'
-Plugin 'jimenezrick/vimerl'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'fatih/vim-go'
+"Plugin 'jimenezrick/vimerl'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
