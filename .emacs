@@ -13,11 +13,31 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
+;;; Search in other window with C-M-S
+(defun isearch-other-window ()
+  (interactive)
+  (save-selected-window
+    (other-window 1)
+    (isearch-forward)))
+
+(global-set-key (kbd "C-M-S") 'isearch-other-window)
+
+;;; Org keys
+(global-set-key (kbd "\C-ca") 'org-agenda)
+(global-set-key (kbd "\C-cb") 'org-iswitchb)
+(global-set-key (kbd "\C-cc") 'org-capture)
+
+;;; Multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/Documents/notes.org")))
+ '(org-default-notes-file "~/Documents/notes.org")
  '(tool-bar-mode nil)
  '(truncate-lines t))
 (custom-set-faces
