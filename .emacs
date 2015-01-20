@@ -47,6 +47,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(menu-bar-mode nil)
  '(org-agenda-files (quote ("~/Documents/notes.org")))
  '(org-default-notes-file "~/Documents/notes.org")
  '(tool-bar-mode nil)
