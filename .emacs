@@ -42,11 +42,17 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
+;;; boron theme
+(load-theme 'boron t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("456ac8176c7c01680384356cbdc568a7683d1bada9c83ae3d7294809ddda4014" default)))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("~/Documents/notes.org")))
  '(org-default-notes-file "~/Documents/notes.org")
