@@ -7,6 +7,17 @@
 (require 'cl)
 (autoload 'yang-mode "yang-mode" "Major mode for editing YANG modules." t)
 (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
+(defun my-yang-mode-hook ()
+  "Configuration for YANG Mode. Add this to `yang-mode-hook'."
+  (if window-system
+    (progn
+	     (c-set-style "BSD")
+	     (setq indent-tabs-mode nil)
+	     (setq c-basic-offset 2)
+	     (setq font-lock-maximum-decoration t)
+	     (font-lock-mode t))))
+
+(add-hook 'yang-mode-hook 'my-yang-mode-hook)
 
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
