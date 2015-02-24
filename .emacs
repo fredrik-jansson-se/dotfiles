@@ -41,6 +41,8 @@
 ;;; Multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
 ;;; boron theme
 (load-theme 'boron t)
@@ -53,14 +55,16 @@
  '(custom-safe-themes
    (quote
     ("456ac8176c7c01680384356cbdc568a7683d1bada9c83ae3d7294809ddda4014" default)))
+ '(global-linum-mode t)
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("~/Documents/notes.org")))
  '(org-default-notes-file "~/Documents/notes.org")
  '(tool-bar-mode nil)
  '(truncate-lines t))
+ '(scroll-error-top-bottom t)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(linum ((t (:background "#2a2a28" :foreground "chartreuse1")))))
