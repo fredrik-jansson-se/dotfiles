@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 
 " Vundle
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -21,6 +21,7 @@ Plugin 'jimenezrick/vimerl'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/xml.vim'
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'klen/python-mode'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -87,12 +88,24 @@ set cinoptions=g0
 nnoremap <F4> :execute 'grep -r ' . expand('<cword>') . ' *'<CR>
 nnoremap <F3> :cn<CR>
 
+" Map F5 to underline text, normal and insert mode
+nnoremap <F5> yyp<c-v>$r-
+inoremap <F5> <Esc>yyp<c-v>$r-A
+
 " Yang syntax (place in ~/.vim/syntax)
 au BufRead,BufNewFile *.yang setfiletype yang
+au FileType yang :syntax sync fromstart
 
-"Solarized
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
+" Set textwidth 80 in text files
+au BufRead,BufNewFile *txt set tw=80
 
-"au FileType xml set paste
+" 256 colors
+set t_Co=256
+
+" Ignore whitespace in diff
+if &diff
+      " diff mode
+      set diffopt+=iwhite
+endif
+
+let mapleader=","
