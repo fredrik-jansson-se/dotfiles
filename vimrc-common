@@ -100,6 +100,8 @@ inoremap <F5> <Esc>yyp<c-v>$r-A
 au BufRead,BufNewFile *.yang setfiletype yang
 au FileType yang :syntax sync fromstart
 
+au BufRead,BufNewFile *.erl set cursorline
+
 " Set textwidth 80 in text files
 au BufRead,BufNewFile *txt set tw=80
 
