@@ -26,6 +26,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/xml.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
