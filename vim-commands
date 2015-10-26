@@ -1,0 +1,37 @@
+Create 80 stars
+********************************************************************************
+In insert mode:
+ctrl-o 80 i * ESC
+
+
+Text edit with wrapping
+********************************************************************************
+set tw=80
+gq<MOTION> - fix layout
+
+To upper case
+********************************************************************************
+gU <movement> 
+e.g. gUiw current word
+gUw rest of the word
+
+Increase value by one
+********************************************************************************
+Cursor over number and ctrl-a (ctrl-x to decrease)
+Add 10: 10 ctrl-a
+
+Create numbered lists
+********************************************************************************
+:put =range(11,15)
+:for i in range(1,10) | put ='192.168.0.'.i | endfor
+:put =map(range(1,150), 'printf(''%04d'', v:val)')
+
+
+Folds
+********************************************************************************
+zo/zO open fold
+zc/zC close fold
+
+Format current file as JSON
+********************************************************************************
+:%!python -m json.tool

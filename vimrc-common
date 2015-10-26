@@ -53,6 +53,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Keep 4 spaces in java code
+autocmd FileType java set tabstop=4|set shiftwidth=4
+
 set number " show linenumbers
 set nowrap " no wrapping
 
