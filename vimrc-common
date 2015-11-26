@@ -24,6 +24,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/xml.vim'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tbjurman/vim-lux'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -53,8 +54,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Keep 4 spaces in java code
+" Keep 4 spaces in some code
 autocmd FileType java set tabstop=4|set shiftwidth=4
+
+autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4|set list
 
 set number " show linenumbers
 set nowrap " no wrapping
