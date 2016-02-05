@@ -20,6 +20,7 @@ Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-tags'
+Plugin 'vim-erlang/vim-erlang-skeletons'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/xml.vim'
 Plugin 'klen/python-mode'
@@ -57,7 +58,9 @@ set expandtab
 " Keep 4 spaces in some code
 autocmd FileType java set tabstop=4|set shiftwidth=4
 
-autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4|set list
+autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4
+
+autocmd BufNewFile,BufRead *adoc set tw=80
 
 set number " show linenumbers
 set nowrap " no wrapping
@@ -118,8 +121,7 @@ if &diff
       set diffopt+=iwhite
 endif
 
-let mapleader=","
-
+" let mapleader=","
 
 """"""""""""""""""""
 " Python
