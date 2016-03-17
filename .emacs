@@ -1,70 +1,84 @@
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-(add-to-list 'load-path "~/.emacs.d/frja")
-(require 'cl)
-(autoload 'yang-mode "yang-mode" "Major mode for editing YANG modules." t)
-(add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
-(defun my-yang-mode-hook ()
-  "Configuration for YANG Mode. Add this to `yang-mode-hook'."
-  (if window-system
-    (progn
-	     (c-set-style "BSD")
-	     (setq indent-tabs-mode nil)
-	     (setq c-basic-offset 2)
-	     (setq font-lock-maximum-decoration t)
-	     (font-lock-mode t))))
-
-(add-hook 'yang-mode-hook 'my-yang-mode-hook)
-
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
-
-;;; Search in other window with C-M-S
-(defun isearch-other-window ()
-  (interactive)
-  (save-selected-window
-    (other-window 1)
-    (isearch-forward)))
-
-(global-set-key (kbd "C-M-S") 'isearch-other-window)
-
-;;; Org keys
-(global-set-key (kbd "\C-ca") 'org-agenda)
-(global-set-key (kbd "\C-cb") 'org-iswitchb)
-(global-set-key (kbd "\C-cc") 'org-capture)
-
-;;; Multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-
-;;; boron theme
-(load-theme 'boron t)
+(require 'misc)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("456ac8176c7c01680384356cbdc568a7683d1bada9c83ae3d7294809ddda4014" default)))
  '(global-linum-mode t)
- '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/Documents/notes.org")))
- '(org-default-notes-file "~/Documents/notes.org")
- '(tool-bar-mode nil)
+ '(global-pabbrev-mode t)
+ '(column-number-mode t)
+ '(scroll-preserve-screen-position)
+ '(haskell-process-type (quote stack-ghci))
+ '(package-archives
+   (quote
+    (("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(truncate-lines t))
- '(scroll-error-top-bottom t)
+
+;; match parenthesis
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(setq show-paren-style 'mixed)
+
+;; Hide menu and toolbar
+(menu-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)))
+      
+
+;; Bind M-f to forward-to-word
+(global-set-key (kbd "M-f") 'forward-to-word)
+
+;; Use ibuffer instead of buffer list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; No start screen
+(setq inhibit-startup-message t)
+
+;; Add HOME/bin to path
+(setq exec-path (append exec-path '("~/bin")))
+
+;; Save temp files in /tmp
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Erlang
+(setq load-path (cons  "/opt/local/lib/erlang/lib/tools-2.8.2/emacs"
+                 load-path))
+(setq erlang-root-dir "/opt/local/lib/erlang")
+(setq exec-path (cons "/opt/local/bin" exec-path))
+(require 'erlang-start)
+
+;; Tail-f
+(require 'cl)
+(load-file "/Users/frjansso/dev/confd-6.1/devel_support/lib/emacs/tail-f.el")
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(linum ((t (:background "#2a2a28" :foreground "chartreuse1")))))
+ )
+
+
+;; Haskell
+(eval-after-load "haskell-mode"
+  '(progn
+    (define-key haskell-mode-map (kbd "C-x C-d") nil)
+    (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+    (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+    (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+    (define-key haskell-mode-map (kbd "C-c M-.") nil)
+    (define-key haskell-mode-map (kbd "C-c C-d") nil)))
+
+;; Fix ctrl-up and ctrl-down
+(define-key input-decode-map "\e[1;5A" [C-up])
+(define-key input-decode-map "\e[1;5B" [C-down])
