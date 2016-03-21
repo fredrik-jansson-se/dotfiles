@@ -55,11 +55,13 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; Erlang
-(setq load-path (cons  "/opt/local/lib/erlang/lib/tools-2.8.2/emacs"
-                 load-path))
-(setq erlang-root-dir "/opt/local/lib/erlang")
-(setq exec-path (cons "/opt/local/bin" exec-path))
-(require 'erlang-start)
+(when (file-exists-p "/opt/local/lib/erlang/lib/tools-2.8.2/emacs")
+  (setq load-path (cons  "/opt/local/lib/erlang/lib/tools-2.8.2/emacs"
+                         load-path))
+  (setq erlang-root-dir "/opt/local/lib/erlang")
+  (setq exec-path (cons "/opt/local/bin" exec-path))
+  (require 'erlang-start)
+  )
 
 ;; Tail-f
 (require 'cl)
