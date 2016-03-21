@@ -17,6 +17,13 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(truncate-lines t))
 
+(package-initialize)
+
+;;(package-install 'flycheck)
+
+(global-flycheck-mode)
+
+
 ;; match parenthesis
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -56,7 +63,8 @@
 
 ;; Tail-f
 (require 'cl)
-(load-file "/Users/frjansso/dev/confd-6.1/devel_support/lib/emacs/tail-f.el")
+(when (file-exists-p "/Users/frjansso/dev/confd-6.1/devel_support/lib/emacs/tail-f.el")
+  (load-file "/Users/frjansso/dev/confd-6.1/devel_support/lib/emacs/tail-f.el"))
 
 
 (custom-set-faces
@@ -82,3 +90,4 @@
 ;; Fix ctrl-up and ctrl-down
 (define-key input-decode-map "\e[1;5A" [C-up])
 (define-key input-decode-map "\e[1;5B" [C-down])
+
