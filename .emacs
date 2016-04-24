@@ -1,3 +1,7 @@
+;;; package --- Fredriks .emacs
+;;; Commentary: Fredriks
+;;; Code: none
+
 (require 'package)
 (require 'misc)
 
@@ -7,7 +11,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
- '(global-pabbrev-mode t)
  '(column-number-mode t)
  '(scroll-preserve-screen-position)
  '(haskell-process-type (quote stack-ghci))
@@ -15,19 +18,24 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+ '(show-paren-delay 0)
+ '(show-paren-style 'mixed)
  '(truncate-lines t))
 
 (package-initialize)
 
 ;;(package-install 'flycheck)
 
-(global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
+(require 'guide-key)
+(setq guide-key/guide-key-sequence '("C-c"))
+(guide-key-mode 1)
 
 ;; match parenthesis
 (show-paren-mode 1)
-(setq show-paren-delay 0)
-(setq show-paren-style 'mixed)
+;; (setq show-paren-delay 0)
+;; (setq show-paren-style 'mixed)
 
 ;; Hide menu and toolbar
 (menu-bar-mode -1)
@@ -92,4 +100,28 @@
 ;; Fix ctrl-up and ctrl-down
 (define-key input-decode-map "\e[1;5A" [C-up])
 (define-key input-decode-map "\e[1;5B" [C-down])
+
+(defalias 'list-buffers 'ibuffer)
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("erlang" (mode . erlang-mode))
+               ("haskell" (mode . haskell-mode))
+               ("yang" (mode . yang-mode))
+               ("lux" (mode . lux-mode))
+               ("xml" (or
+                       (mode . nxml-mode)
+                       (mode . xml-mode)))
+                
+               ("dired" (mode . dired-mode))
+               ("cli-spec" (name . ".*\.cli"))
+               ("support-mail" (name . "support\.tail-f.*"))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")))))))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+                         (ibuffer-switch-to-saved-filter-groups "default")))
+
+(provide '.emacs)
+;;; .emacs ends here
 

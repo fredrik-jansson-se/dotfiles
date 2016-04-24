@@ -35,3 +35,11 @@ zc/zC close fold
 Format current file as JSON
 ********************************************************************************
 :%!python -m json.tool
+
+
+Insert mode commands
+********************************************************************************
+CTRL-T inserts a tab at the start of the line
+CTLR-D deletes a tab at the start of the line
+CTRL-O into normal mode for one command
+CTRL-W deletes the previous word

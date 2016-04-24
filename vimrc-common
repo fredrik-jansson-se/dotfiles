@@ -21,12 +21,12 @@ Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-erlang/vim-erlang-skeletons'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/xml.vim'
 Plugin 'klen/python-mode'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tbjurman/vim-lux'
 Plugin 'bitc/vim-hdevtools.git'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -37,7 +37,7 @@ let g:ctrlp_working_path_mode= 'a'
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-set is " incsearch, i.e. show partial matches when typing
+set incsearch " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
 set ignorecase
 set smartcase
@@ -63,6 +63,8 @@ autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4
 
 autocmd BufNewFile,BufRead *adoc set tw=80
 
+autocmd BufNewFile,BufRead *yang set tabstop=2|set shiftwidth=2
+
 set number " show linenumbers
 set nowrap " no wrapping
 
@@ -74,7 +76,11 @@ set backspace=indent,eol,start
 " Tab navigation
 nnoremap <C-k>  :tabfirst<CR>
 nnoremap <C-l>  :tabnext<CR>
+if has('nvim')
+nnoremap <BS>  :tabprev<CR>
+else
 nnoremap <C-h>  :tabprev<CR>
+endif
 nnoremap <C-j>  :tablast<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
@@ -84,6 +90,9 @@ nnoremap td  :tabclose<CR>
 "====[ Swap : and ; to make colon commands easier to type ]======
 nnoremap ; :
 nnoremap : ;
+
+" Hit ; twice to "find next"
+" noremap ;; ;
 
 "====[ Swap v and CTRL-V, because Block mode is more useful that Visual mode ==
 
@@ -96,13 +105,8 @@ vnoremap <C-V>     v
 " Fix indent of public/private/protected in classes
 set cinoptions=g0
 
-" Map F4 to search in files
-nnoremap <F4> :execute 'grep -r ' . expand('<cword>') . ' *'<CR>
-nnoremap <F3> :cn<CR>
-
-" Map F5 to underline text, normal and insert mode
-nnoremap <F5> yyp<c-v>$r-
-inoremap <F5> <Esc>yyp<c-v>$r-A
+" Map F4 to paste toggle
+set pastetoggle=<F4>
 
 " Yang syntax (place in ~/.vim/syntax)
 au BufRead,BufNewFile *.yang setfiletype yang
@@ -111,7 +115,7 @@ au FileType yang :syntax sync fromstart
 au BufRead,BufNewFile *.erl set cursorline
 
 " Set textwidth 80 in text files
-au BufRead,BufNewFile *txt set tw=80
+" au BufRead,BufNewFile *txt set tw=80
 
 " 256 colors
 set t_Co=256
@@ -139,7 +143,8 @@ endif
 " " ]]            Jump on next class or function (normal, visual, operator modes)
 " " [M            Jump on previous class or method (normal, visual, operator modes)
 " " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
 
 " Documentation
 let g:pymode_doc = 1
@@ -147,7 +152,15 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+"let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_options_max_line_length = 99
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
+let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_python_flake8_args='--ignore=E501'
+
+
 " Auto check on save
 let g:pymode_lint_write = 1
 
@@ -167,7 +180,52 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+" Remove ws on save
+let g:pymode_trim_whitespaces = 1
+
+let g:pymode_options = 1
+
 
 " Haskell
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+
+"============================================================================
+" Make :help appear in a full-screen tab, instead of a window
+"============================================================================
+
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter  *.txt   call HelpInNewTab()
+augroup END
+
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help'
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
+endfunction
+
+
+"============================================================================
+" Set up persistent undo (with all undo files in one directory)
+"============================================================================
+
+if has('persistent_undo')
+    set undofile
+endif
+
+set undodir=$HOME/.VIM_UNDO_FILES
+
+set undolevels=5000
+
+
+"============================================================================
+" Setup tab completion when finding file
+"============================================================================
+set wildmode=list:longest
+
