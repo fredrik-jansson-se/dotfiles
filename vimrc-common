@@ -27,6 +27,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tbjurman/vim-lux'
 Plugin 'bitc/vim-hdevtools.git'
 Plugin 'tpope/vim-fugitive'
+Plugin 'pbrisbin/vim-syntax-shakespeare'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -60,6 +61,7 @@ set expandtab
 autocmd FileType java set tabstop=4|set shiftwidth=4
 
 autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4
+autocmd BufNewFile,BufRead *luxinc set tabstop=4|set shiftwidth=4|set filetype=lux
 
 autocmd BufNewFile,BufRead *adoc set tw=80
 
@@ -107,6 +109,12 @@ set cinoptions=g0
 
 " Map F4 to paste toggle
 set pastetoggle=<F4>
+
+" Toogle cursor column with F5
+nnoremap <F5> :set cursorcolumn!<CR>
+
+" Map F1 to change directory to current file
+nnoremap <F1> :cd %:p:h<CR>:pwd<CR>
 
 " Yang syntax (place in ~/.vim/syntax)
 au BufRead,BufNewFile *.yang setfiletype yang
@@ -228,4 +236,8 @@ set undolevels=5000
 " Setup tab completion when finding file
 "============================================================================
 set wildmode=list:longest
+
+
+" Use magic when searching
+nnoremap / /\v
 
