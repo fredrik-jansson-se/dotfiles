@@ -162,7 +162,7 @@ let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
 "let g:pymode_lint_checker = "pyflakes,pep8"
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_options_max_line_length = 99
+let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
 let g:syntastic_python_checker_args='--ignore=E501'
@@ -241,3 +241,8 @@ set wildmode=list:longest
 " Use magic when searching
 nnoremap / /\v
 
+" True Color
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Disable mouse
+set mouse=
