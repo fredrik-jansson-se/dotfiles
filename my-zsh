@@ -1,0 +1,8 @@
+# add to ~/.zshrc
+# source ~/dotfiles/my-zsh
+
+export SVN_EDITOR=vim
+export EDITOR=vim
+
+alias cli="ncs_cli -u admin"
+export ZSH_TMUX_AUTOCONNECT=false
