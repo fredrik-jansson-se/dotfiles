@@ -15,7 +15,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
@@ -28,6 +28,7 @@ Plugin 'tbjurman/vim-lux'
 Plugin 'bitc/vim-hdevtools.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
+Plugin 'fredrik-jansson-se/vim-yang'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -62,7 +63,6 @@ autocmd BufNewFile,BufRead *luxinc set tabstop=4|set shiftwidth=4|set filetype=l
 
 autocmd BufNewFile,BufRead *adoc set tw=80
 
-autocmd BufNewFile,BufRead *yang set tabstop=2|set shiftwidth=2
 
 set number " show linenumbers
 set nowrap " no wrapping
@@ -113,9 +113,6 @@ nnoremap <F5> :set cursorcolumn!<CR>
 " Map F1 to change directory to current file
 nnoremap <F1> :cd %:p:h<CR>:pwd<CR>
 
-" Yang syntax (place in ~/.vim/syntax)
-au BufRead,BufNewFile *.yang setfiletype yang
-au FileType yang :syntax sync fromstart
 
 au BufRead,BufNewFile *.erl set cursorline
 
@@ -243,3 +240,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Disable mouse
 set mouse=
+
+" Set shiftwidth 2 in XML
+autocmd FileType xml set tabstop=2|set shiftwidth=2
