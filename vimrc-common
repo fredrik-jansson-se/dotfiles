@@ -27,6 +27,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tbjurman/vim-lux'
 Plugin 'bitc/vim-hdevtools.git'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary.git'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'fredrik-jansson-se/vim-yang'
 
@@ -243,3 +244,5 @@ set mouse=
 
 " Set shiftwidth 2 in XML
 autocmd FileType xml set tabstop=2|set shiftwidth=2
+" Enable matchit to support % in xml
+packadd! matchit
