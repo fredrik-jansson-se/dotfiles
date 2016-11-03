@@ -61,6 +61,7 @@ autocmd FileType java set tabstop=4|set shiftwidth=4
 
 autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4
 autocmd BufNewFile,BufRead *luxinc set tabstop=4|set shiftwidth=4|set filetype=lux
+autocmd BufNewFile,BufRead *yml set tabstop=2|set shiftwidth=2
 
 autocmd BufNewFile,BufRead *adoc set tw=80
 
@@ -115,7 +116,7 @@ nnoremap <F5> :set cursorcolumn!<CR>
 nnoremap <F1> :cd %:p:h<CR>:pwd<CR>
 
 
-au BufRead,BufNewFile *.erl set cursorline
+au BufRead,BufNewFile *.erl set cursorline|set tabstop=2|set shiftwidth=2
 
 " Set textwidth 80 in text files
 " au BufRead,BufNewFile *txt set tw=80
@@ -246,3 +247,10 @@ set mouse=
 autocmd FileType xml set tabstop=2|set shiftwidth=2
 " Enable matchit to support % in xml
 packadd! matchit
+
+function! JoinWithLineAbove ()
+    " appends the line above to the current line
+    exe "normal! kddpkJ"
+endfunction
+
+nnoremap <silent> <C-J> :call JoinWithLineAbove()<CR>
