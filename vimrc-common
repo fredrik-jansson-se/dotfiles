@@ -15,7 +15,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
@@ -28,7 +28,7 @@ Plugin 'tbjurman/vim-lux'
 Plugin 'bitc/vim-hdevtools.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary.git'
-Plugin 'pbrisbin/vim-syntax-shakespeare'
+" Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'fredrik-jansson-se/vim-yang'
 
 call vundle#end()
@@ -57,17 +57,26 @@ call matchadd('ColorColumn', '\%121v', 100)
 set expandtab
 
 " Keep 4 spaces in some code
-autocmd FileType java set tabstop=4|set shiftwidth=4
+augroup java
+  autocmd!
+  autocmd FileType java set tabstop=4|set shiftwidth=4
+augroup end
 
-autocmd BufNewFile,BufRead *lux set tabstop=4|set shiftwidth=4
-autocmd BufNewFile,BufRead *luxinc set tabstop=4|set shiftwidth=4|set filetype=lux
-autocmd BufNewFile,BufRead *yml set tabstop=2|set shiftwidth=2
+augroup yaml
+  autocmd!
+  autocmd BufNewFile,BufRead *yml set tabstop=2|set shiftwidth=2
+augroup end
 
-autocmd BufNewFile,BufRead *adoc set tw=80
+augroup adoc
+  autocmd!
+  autocmd BufNewFile,BufRead *adoc set tw=80
+augroup end
 
 
 set number " show linenumbers
 set nowrap " no wrapping
+
+set formatoptions-=o "dont continue comments when pushing o/O
 
 set backupdir=/tmp/
 set directory=/tmp/
@@ -93,7 +102,8 @@ nnoremap ; :
 nnoremap : ;
 
 " Hit ; twice to "find next"
-" noremap ;; ;
+" Using this adds a long delay to ;
+noremap ;; ;
 
 "====[ Swap v and CTRL-V, because Block mode is more useful that Visual mode ==
 
@@ -112,14 +122,10 @@ set pastetoggle=<F4>
 " Toogle cursor column with F5
 nnoremap <F5> :set cursorcolumn!<CR>
 
-" Map F1 to change directory to current file
-nnoremap <F1> :cd %:p:h<CR>:pwd<CR>
-
-
-au BufRead,BufNewFile *.erl set cursorline|set tabstop=2|set shiftwidth=2
-
-" Set textwidth 80 in text files
-" au BufRead,BufNewFile *txt set tw=80
+augroup Erlang
+  autocmd!
+  autocmd BufRead,BufNewFile *.erl set tabstop=2|set shiftwidth=2
+augroup end
 
 " 256 colors
 set t_Co=256
@@ -129,8 +135,6 @@ if &diff
       " diff mode
       set diffopt+=iwhite
 endif
-
-" let mapleader=","
 
 """"""""""""""""""""
 " Python
@@ -156,7 +160,6 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-"let g:pymode_lint_checker = "pyflakes,pep8"
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
@@ -191,10 +194,12 @@ let g:pymode_options = 1
 
 
 " Haskell
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-
+augroup haskell
+  autocmd!
+  autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+  autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+  autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+augroup end
 
 "============================================================================
 " Make :help appear in a full-screen tab, instead of a window
@@ -202,8 +207,8 @@ au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
 "Only apply to .txt files...
 augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter  *.txt   call HelpInNewTab()
+  autocmd!
+  autocmd BufEnter  *.txt   call HelpInNewTab()
 augroup END
 
 "Only apply to help files...
@@ -243,10 +248,14 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Disable mouse
 set mouse=
 
-" Set shiftwidth 2 in XML
-autocmd FileType xml set tabstop=2|set shiftwidth=2
 " Enable matchit to support % in xml
 packadd! matchit
+
+" Set shiftwidth 2 in XML
+augroup xml
+  autocmd!
+  autocmd FileType xml set tabstop=2|set shiftwidth=2
+augroup end
 
 function! JoinWithLineAbove ()
     " appends the line above to the current line
