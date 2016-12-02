@@ -258,7 +258,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set mouse=
 
 " Enable matchit to support % in xml
-packadd! matchit
+" packadd! matchit
+runtime macros/matchit.vim
 
 " Set shiftwidth 2 in XML
 augroup xml
