@@ -29,7 +29,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'fredrik-jansson-se/vim-yang'
 
-Plugin 'eagletmt/ghcmod-vim.git'
+" Plugin 'eagletmt/ghcmod-vim.git'
+Plugin 'hdevtools/hdevtools'
+Plugin 'bitc/vim-hdevtools'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'godlygeek/tabular.git'
 Plugin 'ervandew/supertab.git'
@@ -201,14 +203,14 @@ let g:pymode_options = 1
 " Haskell
 augroup haskell
   autocmd!
-  " autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-  " autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-  " autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+  autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+  autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+  autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
   autocmd FileType haskell set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
-  nnoremap <silent> tw :GhcModTypeInsert<CR>
-  nnoremap <silent> ts :GhcModSplitFunCase<CR>
-  nnoremap <silent> tq :GhcModType<CR>
-  nnoremap <silent> te :GhcModTypeClear<CR>
+  " nnoremap <silent> tw :GhcModTypeInsert<CR>
+  " nnoremap <silent> ts :GhcModSplitFunCase<CR>
+  " nnoremap <silent> tq :GhcModType<CR>
+  " nnoremap <silent> te :GhcModTypeClear<CR>
 augroup end
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
