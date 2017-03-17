@@ -47,6 +47,8 @@
 (setq frame-background-mode 'light)
 
 ;;; YANG
+(require 'yang-mode)
+
 (defun my-yang-mode-hook ()
   "Configuration for YANG Mode. Add this to `yang-mode-hook'."
   (if window-system
