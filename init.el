@@ -55,6 +55,8 @@
     (c-set-style "BSD")
     (setq indent-tabs-mode nil)
     (setq c-basic-offset 2)
+    (setq show-paren-delay 0)
+    (show-paren-mode 1)
     (setq font-lock-maximum-decoration t)
     (font-lock-mode t)))
 
@@ -76,5 +78,14 @@
       kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
       auto-save-default t               ; auto-save every buffer that visits a file
       auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
+      auto-save-Interval 200            ; number of keystrokes between auto-saves (default: 300)
       )
+
+(defun newline-above ()
+  (interactive)
+  (let ((oldpos (point)))
+    (forward-line -1)
+    (end-of-line)
+    (newline)))
+
+(define-key evil-normal-state-map (kbd "[ SPC") 'newline-above)
