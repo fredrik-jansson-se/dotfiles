@@ -119,3 +119,6 @@
     (add-hook 'yang-mode-hook 'my-yang-mode-hook)
     )
   )
+
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(require 'lux-mode)
