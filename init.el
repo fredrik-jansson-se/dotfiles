@@ -58,7 +58,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )				
+ '(package-selected-packages
+   (quote
+    (magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -101,19 +103,19 @@
 
 (use-package yang-mode
   :ensure t
-;  :config
-;  (progn
-;    (defun my-yang-mode-hook ()
-;      "Configuration for YANG Mode. Add this to `yang-mode-hook'."
-;      (progn
-;	(c-set-style "BSD")
-;	(setq indent-tabs-mode nil)
-;	(setq c-basic-offset 2)
-;	(setq show-paren-delay 0)
-;	(show-paren-mode 1)
-;	(setq font-lock-maximum-decoration t)
-;	(font-lock-mode t)))
-;
-;    (add-hook 'yang-mode-hook 'my-yang-mode-hook)
-;    )
+  :config
+  (progn
+    (defun my-yang-mode-hook ()
+      "Configuration for YANG Mode. Add this to `yang-mode-hook'."
+      (progn
+	(c-set-style "BSD")
+	(setq indent-tabs-mode nil)
+	(setq c-basic-offset 2)
+	(setq show-paren-delay 0)
+	(show-paren-mode 1)
+	(setq font-lock-maximum-decoration t)
+	(font-lock-mode t)))
+
+    (add-hook 'yang-mode-hook 'my-yang-mode-hook)
+    )
   )
