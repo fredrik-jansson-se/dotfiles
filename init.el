@@ -60,7 +60,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
+    (haskell-mode magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -87,7 +87,7 @@
 ;;; Backup files
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
-        (make-directory --backup-directory t))
+    (make-directory --backup-directory t))
 (setq backup-directory-alist `(("." . ,--backup-directory)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
@@ -120,5 +120,16 @@
     )
   )
 
-(add-to-list 'load-path "~/.emacs.d/lisp")
-(require 'lux-mode)
+(use-package haskell-mode
+  :ensure f
+  :interpreter ("haskell" . haskell-mode))
+
+(use-package lux-mode
+  :load-path "~/.emacs.d/lisp"
+  :mode "\\.lux\\'"
+  :interpreter "lux")
+
+(use-package erlang
+  :ensure f
+  :pin melpa-stable
+  )
