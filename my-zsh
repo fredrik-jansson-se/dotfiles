@@ -5,4 +5,5 @@ export SVN_EDITOR=emacs
 export EDITOR=emacs
 
 alias cli="ncs_cli -u admin"
+alias ccli="ncs_cli -u admin -C"
 export ZSH_TMUX_AUTOCONNECT=false

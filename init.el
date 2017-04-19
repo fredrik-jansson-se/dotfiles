@@ -1,3 +1,6 @@
+;;; Commentary:
+;;; My init.el
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -14,39 +17,41 @@
 (use-package evil
   :ensure t
   :init
-  (progn
-    ;;; ctrl-u should scroll up
-    (setq evil-want-C-u-scroll t)
-    )
+  ;;; ctrl-u should scroll up
+  (setq evil-want-C-u-scroll t)
   :config
-  (progn
-    (evil-mode 1)
-    (use-package evil-matchit
-      :ensure t
-      :init
-      (progn
-	(global-evil-matchit-mode 1)
-	))
-    (use-package evil-nerd-commenter
-      :ensure t
-      :init
-      (progn 
-	(evilnc-default-hotkeys)
-	))
-      
+  (evil-mode 1)
+  (use-package evil-matchit
+    :ensure t
+    :init
+    (global-evil-matchit-mode 1)
+    )
+
+  (show-paren-mode t)
+  (setq show-paren-delay 0)
+
+    ;;; always use spaces
+  (setq indent-tabs-mode nil)
+
+  (use-package evil-nerd-commenter
+    :ensure t
+    :init
+    (evilnc-default-hotkeys)
+    )
+  
 
     ;;; evil-ex
     ;;; Map ; to :
-    (define-key evil-normal-state-map (kbd ";") 'evil-ex)
-    (define-key evil-normal-state-map (kbd ":") `evil-repeat-find-char)
-    (defun newline-above ()
-      (interactive)
-      (let ((oldpos (point)))
-	(forward-line -1)
-	(end-of-line)
-	(newline)))
-    (define-key evil-normal-state-map (kbd "[ SPC") 'newline-above)
-    ))
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+  (define-key evil-normal-state-map (kbd ":") `evil-repeat-find-char)
+  (defun newline-above ()
+    (interactive)
+    (let ((oldpos (point)))
+      (forward-line -1)
+      (end-of-line)
+      (newline)))
+  (define-key evil-normal-state-map (kbd "[ SPC") 'newline-above)
+  )
 
 
 (use-package magit
@@ -60,7 +65,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (haskell-mode magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
+    (flycheck-tip flycheck erlang f haskell-mode magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,7 +93,7 @@
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
     (make-directory --backup-directory t))
-(setq backup-directory-alist `(("." . ,--backup-directory)))
+(setq backup-directory-alist `((".*" . ,--backup-directory)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
       version-control t                 ; version numbers for backup files
@@ -104,20 +109,15 @@
 (use-package yang-mode
   :ensure t
   :config
-  (progn
-    (defun my-yang-mode-hook ()
-      "Configuration for YANG Mode. Add this to `yang-mode-hook'."
-      (progn
-	(c-set-style "BSD")
-	(setq indent-tabs-mode nil)
-	(setq c-basic-offset 2)
-	(setq show-paren-delay 0)
-	(show-paren-mode 1)
-	(setq font-lock-maximum-decoration t)
-	(font-lock-mode t)))
+  (defun my-yang-mode-hook ()
+    "Configuration for YANG Mode. Add this to `yang-mode-hook'."
+    (progn
+      (c-set-style "BSD")
+      (setq c-basic-offset 2)
+      (setq font-lock-maximum-decoration t)
+      (font-lock-mode t)))
 
-    (add-hook 'yang-mode-hook 'my-yang-mode-hook)
-    )
+  (add-hook 'yang-mode-hook 'my-yang-mode-hook)
   )
 
 (use-package haskell-mode
@@ -132,4 +132,15 @@
 (use-package erlang
   :ensure f
   :pin melpa-stable
+  :config
+  (use-package flycheck
+    :ensure t
+    :pin melpa-stable
+    :config
+    (global-flycheck-mode))
+  (use-package flycheck-tip
+    :ensure t
+    :pin melpa-stable
+    :config
+    (flycheck-tip-use-timer 'verbose))
   )
