@@ -30,7 +30,10 @@
   (show-paren-mode t)
   (setq show-paren-delay 0)
 
-    ;;; always use spaces
+  ;;; treat _ as part of word, e.g. when searching with *
+  (defalias #'forward-evil-word #'forward-evil-symbol)
+
+  ;;; always use spaces
   (setq indent-tabs-mode nil)
 
   (use-package evil-nerd-commenter
