@@ -34,14 +34,14 @@
   (defalias #'forward-evil-word #'forward-evil-symbol)
 
   ;;; always use spaces
-  (setq indent-tabs-mode nil)
+  (setq-default indent-tabs-mode nil)
 
   (use-package evil-nerd-commenter
     :ensure t
     :init
     (evilnc-default-hotkeys)
     )
-  
+
 
     ;;; evil-ex
     ;;; Map ; to :
@@ -68,7 +68,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-tip flycheck erlang f haskell-mode magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
+    (markdown-mode flycheck-tip flycheck erlang f haskell-mode magit evil-nerd-commenter evil-matchit evil yang-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -136,6 +136,9 @@
   :ensure f
   :pin melpa-stable
   :config
+  (add-hook 'erlang-mode-hook
+	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+  (add-hook 'erlang-mode-hook 'whitespace-mode)
   (use-package flycheck
     :ensure t
     :pin melpa-stable
@@ -147,3 +150,21 @@
     :config
     (flycheck-tip-use-timer 'verbose))
   )
+
+(use-package markdown-mode
+  :ensure f
+  )
+
+;; (require 'whitespace)
+(use-package whitespace
+  :config
+  (setq whitespace-style '(face empty tabs lines-tail trailing))
+  )
+
+;; https://www.masteringemacs.org/article/introduction-to-ido-mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+;; Don't wrap
+(set-default 'truncate-lines t)
