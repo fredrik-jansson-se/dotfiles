@@ -30,9 +30,6 @@
   (show-paren-mode t)
   (setq show-paren-delay 0)
 
-  ;;; treat _ as part of word, e.g. when searching with *
-  (defalias #'forward-evil-word #'forward-evil-symbol)
-
   ;;; always use spaces
   (setq-default indent-tabs-mode nil)
 
@@ -97,6 +94,8 @@
 (if (not (file-exists-p --backup-directory))
     (make-directory --backup-directory t))
 (setq backup-directory-alist `((".*" . ,--backup-directory)))
+(setq auto-save-file-name-transforms
+      `((".*", --backup-directory t)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
       version-control t                 ; version numbers for backup files
@@ -138,6 +137,12 @@
   :config
   (add-hook 'erlang-mode-hook
 	    (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+  ;; Treat words separated by _ as one word
+  (add-hook 'erlang-mode-hook
+	    (lambda () (modify-syntax-entry ?_ "w")))
+
+  ;; Enable whitespace mode
   (add-hook 'erlang-mode-hook 'whitespace-mode)
   (use-package flycheck
     :ensure t
@@ -149,6 +154,7 @@
     :pin melpa-stable
     :config
     (flycheck-tip-use-timer 'verbose))
+
   )
 
 (use-package markdown-mode
@@ -168,3 +174,5 @@
 
 ;; Don't wrap
 (set-default 'truncate-lines t)
+
+;;; init.el ends here

@@ -131,7 +131,7 @@ nnoremap <F5> :set cursorcolumn!<CR>
 
 augroup Erlang
   autocmd!
-  autocmd BufRead,BufNewFile *.erl set tabstop=2|set shiftwidth=2
+  autocmd BufRead,BufNewFile *.erl set tabstop=4|set shiftwidth=4
 augroup end
 
 " 256 colors
