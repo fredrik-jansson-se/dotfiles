@@ -79,9 +79,9 @@ augroup adoc
   autocmd BufNewFile,BufRead *adoc set tw=80
 augroup end
 
-augroup js
+augroup javascript
   autocmd!
-  autocmd FileType java set tabstop=4|set shiftwidth=4
+  autocmd FileType javascript set tabstop=4|set shiftwidth=4
 augroup end
 
 
