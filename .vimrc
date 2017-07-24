@@ -79,6 +79,11 @@ augroup adoc
   autocmd BufNewFile,BufRead *adoc set tw=80
 augroup end
 
+augroup js
+  autocmd!
+  autocmd FileType java set tabstop=4|set shiftwidth=4
+augroup end
+
 
 set number " show linenumbers
 set nowrap " no wrapping
