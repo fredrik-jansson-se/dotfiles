@@ -69,9 +69,14 @@ augroup java
   autocmd FileType java set tabstop=4|set shiftwidth=4
 augroup end
 
+augroup sh
+  autocmd!
+  autocmd FileType sh set tabstop=4|set shiftwidth=4
+augroup end
+
 augroup yaml
   autocmd!
-  autocmd BufNewFile,BufRead *yml set tabstop=2|set shiftwidth=2
+  autocmd FileType yaml set tabstop=2|set shiftwidth=2
 augroup end
 
 augroup adoc
@@ -84,6 +89,30 @@ augroup javascript
   autocmd FileType javascript set tabstop=4|set shiftwidth=4
 augroup end
 
+augroup json
+  autocmd!
+  autocmd FileType json set tabstop=4|set shiftwidth=4
+augroup end
+
+augroup Erlang
+  autocmd!
+  autocmd BufRead,BufNewFile *.erl set tabstop=4|set shiftwidth=4
+augroup end
+
+augroup xml
+  autocmd!
+  autocmd FileType xml set tabstop=2|set shiftwidth=2
+augroup end
+
+augroup vim
+  autocmd!
+  autocmd FileType vim set tabstop=2|set shiftwidth=2
+augroup end
+
+augroup go
+  autocmd!
+  autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
+augroup end
 
 set number " show linenumbers
 set nowrap " no wrapping
@@ -99,9 +128,9 @@ set backspace=indent,eol,start
 nnoremap <C-k>  :tabfirst<CR>
 nnoremap <C-l>  :tabnext<CR>
 if has('nvim')
-nnoremap <BS>  :tabprev<CR>
+  nnoremap <BS>  :tabprev<CR>
 else
-nnoremap <C-h>  :tabprev<CR>
+  nnoremap <C-h>  :tabprev<CR>
 endif
 nnoremap <C-j>  :tablast<CR>
 nnoremap tt  :tabedit<Space>
@@ -134,18 +163,14 @@ set pastetoggle=<F4>
 " Toogle cursor column with F5
 nnoremap <F5> :set cursorcolumn!<CR>
 
-augroup Erlang
-  autocmd!
-  autocmd BufRead,BufNewFile *.erl set tabstop=4|set shiftwidth=4
-augroup end
 
 " 256 colors
 set t_Co=256
 
 " Ignore whitespace in diff
 if &diff
-      " diff mode
-      set diffopt+=iwhite
+  " diff mode
+  set diffopt+=iwhite
 endif
 
 """"""""""""""""""""
@@ -204,7 +229,6 @@ let g:pymode_trim_whitespaces = 1
 
 let g:pymode_options = 1
 
-
 " Haskell
 augroup haskell
   autocmd!
@@ -248,10 +272,10 @@ augroup END
 
 "Only apply to help files...
 function! HelpInNewTab ()
-    if &buftype == 'help'
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
+  if &buftype == 'help'
+    "Convert the help window to a tab...
+    execute "normal \<C-W>T"
+  endif
 endfunction
 
 
@@ -260,7 +284,7 @@ endfunction
 "============================================================================
 
 if has('persistent_undo')
-    set undofile
+  set undofile
 endif
 
 set undodir=$HOME/.VIM_UNDO_FILES
@@ -287,15 +311,11 @@ set mouse=
 " packadd! matchit
 runtime macros/matchit.vim
 
-" Set shiftwidth 2 in XML
-augroup xml
-  autocmd!
-  autocmd FileType xml set tabstop=2|set shiftwidth=2
-augroup end
+
 
 function! JoinWithLineAbove ()
-    " appends the line above to the current line
-    exe "normal! kddpkJ"
+  " appends the line above to the current line
+  exe "normal! kddpkJ"
 endfunction
 
 nnoremap <silent> <C-J> :call JoinWithLineAbove()<CR>
