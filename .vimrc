@@ -96,7 +96,12 @@ augroup end
 
 augroup Erlang
   autocmd!
-  autocmd BufRead,BufNewFile *.erl set tabstop=4|set shiftwidth=4
+  autocmd FileType erlang set tabstop=4|set shiftwidth=4
+augroup end
+
+augroup ncs.conf
+	autocmd!
+	au BufRead,BufNewFile ncs.conf setfiletype xml
 augroup end
 
 augroup xml
@@ -197,7 +202,7 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
