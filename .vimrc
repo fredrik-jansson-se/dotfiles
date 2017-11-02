@@ -7,15 +7,17 @@ syntax enable
 set nocompatible 
 filetype off
 
+set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
@@ -23,26 +25,35 @@ Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-erlang/vim-erlang-skeletons'
 Plugin 'othree/xml.vim'
 Plugin 'klen/python-mode'
+
+" [ <space> etc
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tbjurman/vim-lux'
 Plugin 'tpope/vim-fugitive'
+
+" comment with gc
 Plugin 'tpope/vim-commentary.git'
 Plugin 'fredrik-jansson-se/vim-yang'
 
 " Plugin 'eagletmt/ghcmod-vim.git'
+" Haskell
 Plugin 'hdevtools/hdevtools'
 Plugin 'bitc/vim-hdevtools'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'godlygeek/tabular.git'
-Plugin 'ervandew/supertab.git'
-Plugin 'Shougo/neocomplete.vim.git'
-Plugin 'Shougo/vimproc.vim.git'
+
+" Ag/Ack search, see Ag search below
+Plugin 'mileszs/ack.vim'
+
+" Go
+Plugin 'fatih/vim-go'
+
+" FZF
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
 
 " CtrlP settings
-let g:ctrlp_working_path_mode= 'a'
+" let g:ctrlp_working_path_mode= 'a'
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -117,6 +128,8 @@ augroup end
 augroup go
   autocmd!
   autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
+  autocmd FileType go nmap <leader>r <Plug>(go-run)
+  autocmd FileType go nmap <leader>b <Plug>(go-build)
 augroup end
 
 set number " show linenumbers
@@ -206,8 +219,9 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
-let g:syntastic_python_checker_args='--ignore=E501'
-let g:syntastic_python_flake8_args='--ignore=E501'
+" let g:syntastic_python_checker_args='--ignore=E501'
+" let g:syntastic_python_flake8_args='--ignore=E501'
+let g:ale_python_flake8_options='--ignore=E501'
 
 
 " Auto check on save
@@ -241,29 +255,12 @@ augroup haskell
   autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
   autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
   autocmd FileType haskell set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
-  " nnoremap <silent> tw :GhcModTypeInsert<CR>
-  " nnoremap <silent> ts :GhcModSplitFunCase<CR>
-  " nnoremap <silent> tq :GhcModType<CR>
-  " nnoremap <silent> te :GhcModTypeClear<CR>
 augroup end
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
-" if has("gui_running")
-"   imap <c-space>
-"   <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-" else " no gui
-"   if has("unix")
-"     inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-"   endif
-" endif
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:haskell_tabular = 1
-
-vmap a= :Tabularize /=<CR>
-vmap a; :Tabularize /::<CR>
-vmap a- :Tabularize /-><CR>
 
 "============================================================================
 " Make :help appear in a full-screen tab, instead of a window
@@ -327,10 +324,22 @@ nnoremap <silent> <C-J> :call JoinWithLineAbove()<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+
+" Ag search
+" Make sure to install silver searcher (ag)
+let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+cnoreabbrev ag Ack                                                                           
+cnoreabbrev aG Ack                                                                           
+cnoreabbrev Ag Ack                                                                           
+cnoreabbrev AG Ack  
+
+" FZF
+nnoremap <C-p> :FZF<CR>
+
