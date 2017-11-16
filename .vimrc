@@ -14,9 +14,6 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required! 
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'vim-syntastic/syntastic'
 Plugin 'w0rp/ale'
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
@@ -48,6 +45,9 @@ Plugin 'fatih/vim-go'
 
 " FZF
 Plugin 'junegunn/fzf.vim'
+
+" Autocomplete
+Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
 filetype plugin indent on  " required for vundle
@@ -219,9 +219,10 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
-" let g:syntastic_python_checker_args='--ignore=E501'
-" let g:syntastic_python_flake8_args='--ignore=E501'
-let g:ale_python_flake8_options='--ignore=E501'
+" " let g:syntastic_python_checker_args='--ignore=E501'
+" " let g:syntastic_python_flake8_args='--ignore=E501'
+" let g:ale_python_flake8_options='--ignore=E501'
+let g:pymode_lint_ignore = ["E501"]
 
 
 " Auto check on save
