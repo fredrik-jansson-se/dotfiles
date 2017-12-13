@@ -14,12 +14,21 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required! 
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+
+" Syntax checker
 Plugin 'w0rp/ale'
+
+" Status line
+Plugin 'bling/vim-airline'
+
 Plugin 'vim-erlang/vim-erlang-runtime'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-erlang/vim-erlang-skeletons'
+
 Plugin 'othree/xml.vim'
 Plugin 'klen/python-mode'
 
@@ -344,3 +353,6 @@ cnoreabbrev AG Ack
 " FZF
 nnoremap <C-p> :FZF<CR>
 
+" Allow %%/ to be expanded to current files directory, e.g. in tabedit and
+" edit file
+cabbr <expr> %% expand('%:p:h')
