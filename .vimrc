@@ -41,10 +41,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'fredrik-jansson-se/vim-yang'
 
-" Plugin 'eagletmt/ghcmod-vim.git'
 " Haskell
-Plugin 'hdevtools/hdevtools'
-Plugin 'bitc/vim-hdevtools'
+Plugin 'eagletmt/ghcmod-vim.git'
+Plugin 'Shougo/vimproc'
+" Plugin 'hdevtools/hdevtools'
+" Plugin 'bitc/vim-hdevtools'
 
 " Ag/Ack search, see Ag search below
 Plugin 'mileszs/ack.vim'
@@ -261,9 +262,12 @@ let g:pymode_options = 1
 " Haskell
 augroup haskell
   autocmd!
-  autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-  autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-  autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+  nnoremap <Leader>ht :GhcModType<cr>
+  nnoremap <Leader>htc :GhcModTypeClear<cr>
+  autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
+  " autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+  " autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+  " autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
   autocmd FileType haskell set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
 augroup end
 
@@ -356,3 +360,7 @@ nnoremap <C-p> :FZF<CR>
 " Allow %%/ to be expanded to current files directory, e.g. in tabedit and
 " edit file
 cabbr <expr> %% expand('%:p:h')
+
+" Airline and Ale
+let g:airline#extensions#ale#enabled = 1
+
