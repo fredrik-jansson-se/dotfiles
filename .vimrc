@@ -4,7 +4,7 @@ syntax enable
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " :PluginList
 " :PluginInstall
-set nocompatible 
+set nocompatible
 filetype off
 
 set rtp+=~/.fzf
@@ -12,7 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
@@ -30,7 +30,7 @@ Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'vim-erlang/vim-erlang-skeletons'
 
 Plugin 'othree/xml.vim'
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 
 " [ <space> etc
 Plugin 'tpope/vim-unimpaired'
@@ -44,8 +44,6 @@ Plugin 'fredrik-jansson-se/vim-yang'
 " Haskell
 Plugin 'eagletmt/ghcmod-vim.git'
 Plugin 'Shougo/vimproc'
-" Plugin 'hdevtools/hdevtools'
-" Plugin 'bitc/vim-hdevtools'
 
 " Ag/Ack search, see Ag search below
 Plugin 'mileszs/ack.vim'
@@ -59,11 +57,11 @@ Plugin 'junegunn/fzf.vim'
 " Autocomplete
 Plugin 'Shougo/neocomplete.vim'
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 call vundle#end()
 filetype plugin indent on  " required for vundle
-
-" CtrlP settings
-" let g:ctrlp_working_path_mode= 'a'
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -121,8 +119,8 @@ augroup Erlang
 augroup end
 
 augroup ncs.conf
-	autocmd!
-	au BufRead,BufNewFile ncs.conf setfiletype xml
+  autocmd!
+  au BufRead,BufNewFile ncs.conf setfiletype xml
 augroup end
 
 augroup xml
@@ -229,9 +227,9 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_options_max_line_length = 150
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
-" " let g:syntastic_python_checker_args='--ignore=E501'
-" " let g:syntastic_python_flake8_args='--ignore=E501'
-" let g:ale_python_flake8_options='--ignore=E501'
+" let g:syntastic_python_checker_args='--ignore=E501'
+" let g:syntastic_python_flake8_args='--ignore=E501'
+let g:ale_python_flake8_options='--ignore=E501'
 let g:pymode_lint_ignore = ["E501"]
 
 
@@ -261,13 +259,11 @@ let g:pymode_options = 1
 
 " Haskell
 augroup haskell
+  " https://monicalent.com/blog/2017/11/19/haskell-in-vim/
   autocmd!
   nnoremap <Leader>ht :GhcModType<cr>
   nnoremap <Leader>htc :GhcModTypeClear<cr>
   autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
-  " autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-  " autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-  " autocmd FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
   autocmd FileType haskell set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
 augroup end
 
@@ -348,11 +344,11 @@ set statusline+=%*
 
 " Ag search
 " Make sure to install silver searcher (ag)
-let g:ackprg = 'ag --vimgrep --smart-case'                                                   
-cnoreabbrev ag Ack                                                                           
-cnoreabbrev aG Ack                                                                           
-cnoreabbrev Ag Ack                                                                           
-cnoreabbrev AG Ack  
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 " FZF
 nnoremap <C-p> :FZF<CR>
@@ -363,4 +359,3 @@ cabbr <expr> %% expand('%:p:h')
 
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
-

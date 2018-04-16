@@ -63,29 +63,33 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>230 296 918 495 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1361 1023 0 0 1680 1027 </string>
+	<string>11 386 570 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 201 1508 826 0 0 1680 1027 </string>
+	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>-332 1172 570 452 -1054 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
 	<string>-248 1080 570 452 -1054 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>192 220 990 724 0 0 1680 1027 </string>
+	<string>95 3 1550 996 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>-1054 2735 570 452 -1054 1050 3840 2137 </string>
+	<string>0 507 1592 520 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>-799 1269 2684 656 -1054 1050 3840 2137 </string>
+	<string>0 48 1242 979 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-1054 2378 1459 809 -1054 1050 3840 2137 </string>
+	<string>911 422 570 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>-1042 2160 1235 1023 -1054 1050 3840 2137 </string>
+	<string>112 223 1179 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>-1054 2164 1680 1023 -1054 1050 3840 2137 </string>
+	<string>596 119 570 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 8</key>
-	<string>-423 1953 570 452 -1054 1050 3840 2137 </string>
+	<string>-9 1277 1858 1625 -1054 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 9</key>
 	<string>-1054 2164 1680 1023 -1054 1050 3840 2137 </string>
+	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -785,7 +789,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-30T20:29:04Z</date>
+	<date>2018-03-30T07:00:44Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>TabStyle</key>
@@ -795,7 +799,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.4</string>
+	<string>3.1.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
