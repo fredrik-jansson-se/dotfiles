@@ -88,6 +88,11 @@ augroup java
   autocmd FileType java set tabstop=4|set shiftwidth=4
 augroup end
 
+augroup html
+  autocmd!
+  autocmd FileType html set tabstop=4|set shiftwidth=4
+augroup end
+
 augroup sh
   autocmd!
   autocmd FileType sh set tabstop=4|set shiftwidth=4
@@ -126,6 +131,11 @@ augroup end
 augroup xml
   autocmd!
   autocmd FileType xml set tabstop=2|set shiftwidth=2
+  autocmd FileType xml let g:xml_syntax_folding=1
+  autocmd FileType xml setlocal foldmethod=syntax
+  autocmd FileType xml :syntax on
+  autocmd FileType xml :%foldopen!
+  " autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
 augroup end
 
 augroup vim
@@ -138,6 +148,11 @@ augroup go
   autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
+augroup end
+
+augroup toml
+  autocmd!
+  autocmd BufRead,BufNewFile *.toml setlocal commentstring=#\ %s
 augroup end
 
 set number " show linenumbers

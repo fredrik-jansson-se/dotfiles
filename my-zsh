@@ -4,6 +4,6 @@
 export SVN_EDITOR=vim
 export EDITOR=vim
 
-alias cli="ncs_cli -u admin -C"
+alias cli="ncs_cli -u admin"
 alias ccli="ncs_cli -u admin -C"
 export ZSH_TMUX_AUTOCONNECT=false
