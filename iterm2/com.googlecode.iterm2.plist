@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -59,31 +61,31 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>258 1948 735 382 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>504 168 616 174 0 0 1680 1027 </string>
+	<string>504 318 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>556 635 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>872 1539 1018 447 -493 1050 2560 1577 </string>
+	<string>872 1565 796 486 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>223 1372 1550 1234 -493 1050 2560 1577 </string>
+	<string>812 1533 570 452 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>638 1522 1375 945 -468 1050 2560 1417 </string>
+	<string>819 1691 1130 673 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>-332 1172 570 452 -1054 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
 	<string>-248 1080 570 452 -1054 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>151 124 1319 724 0 0 1680 1027 </string>
+	<string>-68 1129 1970 1455 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>-91 1191 1186 1027 -468 1050 2560 1417 </string>
+	<string>627 153 570 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>-283 1723 1214 724 -468 1050 2560 1417 </string>
+	<string>1383 1214 570 452 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>118 134 1228 622 0 0 1440 877 </string>
+	<string>-493 1200 1662 758 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>14 1307 570 452 -468 1050 2560 1417 </string>
+	<string>-64 1341 703 979 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>-107 1614 1683 486 -468 900 2560 1417 </string>
+	<string>-132 1307 1207 1064 -493 1050 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 8</key>
 	<string>0 133 1564 894 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 9</key>
@@ -676,7 +678,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1427,11 +1429,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-30T15:31:03Z</date>
+	<date>2018-08-29T18:40:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowMetalFPSmeter</key>
-	<true/>
+	<false/>
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>UseMetal</key>
@@ -1441,7 +1443,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.7</string>
+	<string>3.2.0</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

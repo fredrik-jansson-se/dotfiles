@@ -15,6 +15,8 @@ call vundle#begin()
 " required!
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'tpope/vim-sensible'
+
 Plugin 'scrooloose/nerdtree'
 
 " Syntax checker
@@ -61,19 +63,23 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
-filetype plugin indent on  " required for vundle
+
+" From vim sensible
+" filetype plugin indent on  " required for vundle
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-set incsearch " incsearch, i.e. show partial matches when typing
+" From vim-sensible
+" set incsearch " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
 set ignorecase
 set smartcase
 
 " Status bar
 set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
-set laststatus=2
+" From vim-sensible
+" set laststatus=2
 
 "====[ Make the 121st column stand out ]====================
 highlight ColorColumn ctermbg=magenta
@@ -135,7 +141,6 @@ augroup xml
   autocmd FileType xml setlocal foldmethod=syntax
   autocmd FileType xml :syntax on
   autocmd FileType xml :%foldopen!
-  " autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
 augroup end
 
 augroup vim
@@ -163,7 +168,8 @@ set formatoptions-=o "dont continue comments when pushing o/O
 set backupdir=/tmp/
 set directory=/tmp/
 
-set backspace=indent,eol,start
+" From vim-sensible
+" set backspace=indent,eol,start
 
 " Tab navigation
 nnoremap <C-k>  :tabfirst<CR>
