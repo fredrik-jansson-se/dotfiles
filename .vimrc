@@ -15,9 +15,10 @@ call vundle#begin()
 " required!
 Plugin 'VundleVim/Vundle.vim'
 
+" Sensible settings for VIM
 Plugin 'tpope/vim-sensible'
 
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 
 " Syntax checker
 Plugin 'w0rp/ale'
@@ -62,24 +63,30 @@ Plugin 'Shougo/neocomplete.vim'
 " Rust
 Plugin 'rust-lang/rust.vim'
 
+" Multiple Cursors
+Plugin 'terryma/vim-multiple-cursors'
+
+" Rename new_name.sh
+" Chmod +x
+" SudoWrite
+Plugin 'tpope/vim-eunuch'
+
+Plugin 'airblade/vim-gitgutter'
+
 call vundle#end()
 
-" From vim sensible
-" filetype plugin indent on  " required for vundle
+" For Vundle
+filetype plugin indent on
 
 " NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <C-n> :NERDTreeToggle<CR>
 
-" From vim-sensible
-" set incsearch " incsearch, i.e. show partial matches when typing
 set hlsearch " hightligh searches
 set ignorecase
 set smartcase
 
 " Status bar
 set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
-" From vim-sensible
-" set laststatus=2
 
 "====[ Make the 121st column stand out ]====================
 highlight ColorColumn ctermbg=magenta
@@ -167,9 +174,6 @@ set formatoptions-=o "dont continue comments when pushing o/O
 
 set backupdir=/tmp/
 set directory=/tmp/
-
-" From vim-sensible
-" set backspace=indent,eol,start
 
 " Tab navigation
 nnoremap <C-k>  :tabfirst<CR>
