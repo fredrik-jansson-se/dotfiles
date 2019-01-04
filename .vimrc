@@ -113,7 +113,7 @@ augroup end
 
 augroup yaml
   autocmd!
-  autocmd FileType yaml set tabstop=2|set shiftwidth=2
+  autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 sts=2 expandtab
 augroup end
 
 augroup adoc
