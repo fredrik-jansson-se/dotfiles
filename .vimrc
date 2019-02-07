@@ -62,6 +62,11 @@ Plugin 'Shougo/neocomplete.vim'
 
 " Rust
 Plugin 'rust-lang/rust.vim'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors'
@@ -384,3 +389,14 @@ cabbr <expr> %% expand('%:p:h')
 
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
+
+" Rust
+let g:rustfmt_autosave = 1
+
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif 
