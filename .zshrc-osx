@@ -25,7 +25,7 @@ export LC_CTYPE=en_US.UTF-8
 
 alias ncs-45='source ~/dev/nso-4.5.5.1/ncsrc'
 alias ncs-46='source ~/dev/nso-4.6.2/ncsrc'
-alias ncs-47='source ~/dev/nso-4.7.2/ncsrc'
+alias ncs-47='source ~/dev/nso-4.7/ncsrc'
 alias dncs-4='source ~/dev/nso-source/confd-6.6/env.sh'
 alias tncs='source ~/dev/nso-source/trunk/env.sh'
 
@@ -40,6 +40,7 @@ alias hoogle='stack hoogle --'
 export EDITOR=vim
 export SVN_EDITOR=vim
 
-export GOPATH="$HOME/dev/go:/Volumes/Fredrik/go"
+# export GOPATH="$HOME/dev/go:/Volumes/Fredrik/go"
+export PATH="$PATH:$HOME/dev/go/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

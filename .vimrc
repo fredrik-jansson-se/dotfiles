@@ -67,10 +67,6 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
-
-" Multiple Cursors
-Plugin 'terryma/vim-multiple-cursors'
-
 " Rename new_name.sh
 " Chmod +x
 " SudoWrite
@@ -353,7 +349,14 @@ set mouse=
 " packadd! matchit
 runtime macros/matchit.vim
 
+" Trim whitespace
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
 
+command! TrimWhitespace call TrimWhitespace()
 
 function! JoinWithLineAbove ()
   " appends the line above to the current line
@@ -400,3 +403,19 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif 
+
+" Golang
+" if executable('gopls')
+" 	au User lsp_setup call lsp#register_server({
+" 				\ 'name': 'gopls',
+" 				\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+" 				\ 'whitelist': ['go'],
+" 				\ })
+" endif
+" if executable('bingo')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'bingo',
+"         \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
+"         \ 'whitelist': ['go'],
+"         \ })
+" endif

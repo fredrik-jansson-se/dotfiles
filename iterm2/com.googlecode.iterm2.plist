@@ -14,6 +14,8 @@
 	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE</string>
+	<key>HideTab</key>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
@@ -53,43 +55,26 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame ProfilesPanel</key>
-	<string>258 1948 735 382 -493 1050 2560 1577 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>504 318 616 174 0 0 1680 1027 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>556 635 620 392 0 0 1680 1027 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>-86 1326 606 469 -355 1200 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>872 1565 796 486 -493 1050 2560 1577 </string>
+	<string>664 1514 1018 447 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>812 1533 570 452 -493 1050 2560 1577 </string>
+	<string>736 2096 1314 929 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>819 1691 1130 673 -493 1050 2560 1577 </string>
-	<key>NSWindow Frame iTerm Window 10</key>
-	<string>-332 1172 570 452 -1054 1050 3840 2137 </string>
-	<key>NSWindow Frame iTerm Window 11</key>
-	<string>-248 1080 570 452 -1054 1050 3840 2137 </string>
+	<string>-116 1782 2467 1285 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-68 1129 1970 1455 -493 1050 2560 1577 </string>
+	<string>-116 2615 570 452 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>627 153 570 452 0 0 1680 1027 </string>
+	<string>1136 1541 570 452 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1383 1214 570 452 -493 1050 2560 1577 </string>
+	<string>-116 2615 570 452 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-493 1200 1662 758 -493 1050 2560 1577 </string>
+	<string>-55 2454 1991 571 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>-64 1341 703 979 -493 1050 2560 1577 </string>
+	<string>-116 1382 1732 792 -116 1200 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>-132 1307 1207 1064 -493 1050 2560 1577 </string>
-	<key>NSWindow Frame iTerm Window 8</key>
-	<string>0 133 1564 894 0 0 1680 1027 </string>
-	<key>NSWindow Frame iTerm Window 9</key>
-	<string>-1054 2164 1680 1023 -1054 1050 3840 2137 </string>
+	<string>107 1327 1207 1115 -116 1200 3360 1867 </string>
 	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE_selection</key>
@@ -1367,12 +1352,12 @@
 			<string>/Users/frjansso</string>
 		</dict>
 	</array>
-	<key>NoSyncHaveUsedCopyMode</key>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>074F1D3C-7BDC-4850-9015-21BAECE123AC</string>
+	<string>63B865B5-9B51-4E20-B119-02579AAB17E3</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1380,7 +1365,7 @@
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>522624720.73790503</real>
+	<real>571196770.25531495</real>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -1418,24 +1403,28 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/frjansso/dotfiles/iterm2</string>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=74</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=22</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-08-29T18:40:42Z</date>
+	<date>2019-02-20T20:53:48Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowMetalFPSmeter</key>
 	<false/>
+	<key>StretchTabsToFillBar</key>
+	<false/>
 	<key>TabStyle</key>
 	<integer>0</integer>
+	<key>UseBorder</key>
+	<true/>
 	<key>UseMetal</key>
 	<true/>
 	<key>WordCharacters</key>
@@ -1443,7 +1432,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.0</string>
+	<string>3.2.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
