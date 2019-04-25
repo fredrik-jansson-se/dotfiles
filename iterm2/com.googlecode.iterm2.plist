@@ -58,23 +58,31 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-86 1326 606 469 -355 1200 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>664 1514 1018 447 -116 1200 3360 1867 </string>
+	<string>-41 1601 928 394 -355 1200 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>736 2096 1314 929 -116 1200 3360 1867 </string>
+	<string>960 1734 1489 810 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-116 1782 2467 1285 -116 1200 3360 1867 </string>
+	<string>2422 2214 838 929 -116 1200 3840 2137 </string>
+	<key>NSWindow Frame iTerm Window 10</key>
+	<string>177 2106 572 453 -355 1200 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 11</key>
+	<string>42 425 1321 453 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-116 2615 570 452 -116 1200 3360 1867 </string>
+	<string>845 1749 2658 1490 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1136 1541 570 452 -116 1200 3360 1867 </string>
+	<string>1511 2400 572 453 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>-116 2615 570 452 -116 1200 3360 1867 </string>
+	<string>1878 2121 1846 1116 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-55 2454 1991 571 -116 1200 3360 1867 </string>
+	<string>709 1643 2161 1490 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>-116 1382 1732 792 -116 1200 3360 1867 </string>
+	<string>1057 2425 985 912 -116 1200 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>107 1327 1207 1115 -116 1200 3360 1867 </string>
+	<string>1403 2308 572 453 -116 1200 3840 2137 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>1898 1951 1545 844 -116 1200 3840 2137 </string>
+	<key>NSWindow Frame iTerm Window 9</key>
+	<string>272 2178 1363 1014 -116 1200 3840 2137 </string>
 	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_BA518549-CC03-42CE-AB7F-BD9C9AF1E3FE_selection</key>
@@ -115,12 +123,16 @@
 			</dict>
 			<key>Ansi 11 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.0052091185934841633</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.69638079273377684</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.7082672119140625</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
@@ -1412,7 +1424,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-20T20:53:48Z</date>
+	<date>2019-03-12T08:18:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1434,7 +1446,7 @@
 	<key>iTerm Version</key>
 	<string>3.2.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>6</integer>
+	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<false/>
 </dict>

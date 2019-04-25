@@ -23,10 +23,10 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-alias ncs-45='source ~/dev/nso-4.5.5.1/ncsrc'
-alias ncs-46='source ~/dev/nso-4.6.2/ncsrc'
-alias ncs-47='source ~/dev/nso-4.7/ncsrc'
-alias dncs-4='source ~/dev/nso-source/confd-6.6/env.sh'
+alias ncs-47='source ~/tail-f/nso-4.7/ncsrc'
+# alias ncs-50='source ~/tail-f/nso-5.0/ncsrc'
+alias ncs-51='source ~/tail-f/nso-5.1/ncsrc'
+alias dncs-5='source ~/tail-f/nso-source/nso-5/env.sh'
 alias tncs='source ~/dev/nso-source/trunk/env.sh'
 
 export USE_SSL_DIR=/opt/local/

@@ -24,13 +24,14 @@ Plugin 'tpope/vim-sensible'
 Plugin 'w0rp/ale'
 
 " Status line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-compiler'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-tags'
-Plugin 'vim-erlang/vim-erlang-skeletons'
+" Plugin 'vim-erlang/vim-erlang-runtime'
+" Plugin 'vim-erlang/vim-erlang-compiler'
+" Plugin 'vim-erlang/vim-erlang-omnicomplete'
+" Plugin 'vim-erlang/vim-erlang-tags'
+" Plugin 'vim-erlang/vim-erlang-skeletons'
 
 Plugin 'othree/xml.vim'
 Plugin 'python-mode/python-mode'
@@ -79,12 +80,12 @@ call vundle#end()
 " For Vundle
 filetype plugin indent on
 
-" NERDTree
-" nnoremap <C-n> :NERDTreeToggle<CR>
-
 set hlsearch " hightligh searches
 set ignorecase
 set smartcase
+
+" Disable Ex mode
+nnoremap Q <Nop>
 
 " Status bar
 set statusline=%F%m%r%h%w\ [%p%%]\ [LEN=%L]
@@ -132,10 +133,10 @@ augroup json
   autocmd FileType json set tabstop=4|set shiftwidth=4
 augroup end
 
-augroup Erlang
-  autocmd!
-  autocmd FileType erlang set tabstop=4|set shiftwidth=4
-augroup end
+" augroup Erlang
+"   autocmd!
+"   autocmd FileType erlang set tabstop=4|set shiftwidth=4
+" augroup end
 
 augroup ncs.conf
   autocmd!
@@ -166,6 +167,11 @@ augroup end
 augroup toml
   autocmd!
   autocmd BufRead,BufNewFile *.toml setlocal commentstring=#\ %s
+augroup end
+
+augroup python
+  autocmd!
+  autocmd FileType py set expandtab
 augroup end
 
 set number " show linenumbers
@@ -215,6 +221,8 @@ set pastetoggle=<F4>
 " Toogle cursor column with F5
 nnoremap <F5> :set cursorcolumn!<CR>
 
+" Toggle line numbers
+nnoremap <F6> :set number!<CR>
 
 " 256 colors
 set t_Co=256
@@ -291,6 +299,12 @@ augroup haskell
   nnoremap <Leader>htc :GhcModTypeClear<cr>
   autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
   autocmd FileType haskell set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
+augroup end
+
+"YANG
+augroup YANG
+  autocmd!
+  autocmd FileType yang set expandtab
 augroup end
 
 let g:haskellmode_completion_ghc = 0
@@ -390,6 +404,8 @@ nnoremap <C-p> :FZF<CR>
 " edit file
 cabbr <expr> %% expand('%:p:h')
 
+" Airline 
+let g:airline_theme='light'
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
 
@@ -402,7 +418,7 @@ if executable('rls')
         \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
         \ 'whitelist': ['rust'],
         \ })
-endif 
+endif
 
 " Golang
 " if executable('gopls')
