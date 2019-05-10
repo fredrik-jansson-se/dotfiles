@@ -347,7 +347,8 @@ set undolevels=5000
 "============================================================================
 " Setup tab completion when finding file
 "============================================================================
-set wildmode=list:longest
+" set wildmode=list:longest
+set wildmode=list:longest:full
 
 
 " Use magic when searching
@@ -361,7 +362,7 @@ set mouse=
 
 " Enable matchit to support % in xml
 " packadd! matchit
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 " Trim whitespace
 fun! TrimWhitespace()
@@ -384,11 +385,6 @@ set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 2
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-
 " Ag search
 " Make sure to install silver searcher (ag)
 let g:ackprg = 'ag --vimgrep --smart-case'
@@ -404,8 +400,9 @@ nnoremap <C-p> :FZF<CR>
 " edit file
 cabbr <expr> %% expand('%:p:h')
 
-" Airline 
+" Airline
 let g:airline_theme='light'
+
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
 
@@ -419,19 +416,3 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif
-
-" Golang
-" if executable('gopls')
-" 	au User lsp_setup call lsp#register_server({
-" 				\ 'name': 'gopls',
-" 				\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-" 				\ 'whitelist': ['go'],
-" 				\ })
-" endif
-" if executable('bingo')
-"   au User lsp_setup call lsp#register_server({
-"         \ 'name': 'bingo',
-"         \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
-"         \ 'whitelist': ['go'],
-"         \ })
-" endif
