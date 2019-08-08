@@ -26,6 +26,7 @@ export LC_CTYPE=en_US.UTF-8
 alias ncs-47='source ~/tail-f/nso-4.7/ncsrc'
 # alias ncs-50='source ~/tail-f/nso-5.0/ncsrc'
 alias ncs-51='source ~/tail-f/nso-5.1/ncsrc'
+alias ncs-52='source ~/tail-f/nso-5.2/ncsrc'
 alias dncs-5='source ~/tail-f/nso-source/nso-5/env.sh'
 alias tncs='source ~/dev/nso-source/trunk/env.sh'
 
@@ -42,5 +43,6 @@ export SVN_EDITOR=vim
 
 # export GOPATH="$HOME/dev/go:/Volumes/Fredrik/go"
 export PATH="$PATH:$HOME/dev/go/bin"
+export PATH="$HOME/nvim-osx64/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
