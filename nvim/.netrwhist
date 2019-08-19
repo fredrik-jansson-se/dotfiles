@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/frjansso/.tmux'
+let g:netrw_dirhist_2='/Users/frjansso'
+let g:netrw_dirhist_3='/Users/frjansso/dev/netconf-call-home/nso/packages/netconf-call-home'
+let g:netrw_dirhist_4='/Users/frjansso/dev/netconf-call-home/nso/packages/netconf-call-home/python'
+let g:netrw_dirhist_5='/Users/frjansso/dev/netconf-call-home/nso/packages/netconf-call-home/python/netconf_call_home'
+let g:netrw_dirhist_6='/Users/frjansso/tail-f/nso-5.1'
+let g:netrw_dirhist_7='/Users/frjansso/dev/mobility/POC/xd/packages/cisco-upf-deployment-ned'
+let g:netrw_dirhist_8='/Users/frjansso/dev/mobility/POC/xd/packages/cisco-upf-deployment-ned/src'

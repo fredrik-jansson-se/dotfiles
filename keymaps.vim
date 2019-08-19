@@ -32,6 +32,10 @@ nnoremap <F6> :set number!<CR>
 " Use magic when searching
 nnoremap / /\v
 
+" center at search
+nnoremap n nzz
+nnoremap N Nzz
+
 function! JoinWithLineAbove ()
   " appends the line above to the current line
   exe "normal! kddpkJ"
