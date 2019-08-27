@@ -3,9 +3,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set rtp+=~/.config/nvim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle
 " required!
