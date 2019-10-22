@@ -37,9 +37,6 @@ Plugin 'fredrik-jansson-se/vim-yang'
 " Ag/Ack search, see Ag search below
 Plugin 'mileszs/ack.vim'
 
-" Go
-Plugin 'fatih/vim-go'
-
 " Autocomplete
 Plugin 'Shougo/deoplete.nvim'
 
