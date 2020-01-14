@@ -86,4 +86,11 @@ augroup end
 augroup Rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
+  autocmd FileType rust setl signcolumn=yes
+augroup end
+
+augroup Asm
+  autocmd!
+  autocmd FileType asm set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
+  autocmd BufRead,BufNewFile *.asm setlocal commentstring=;\ %s
 augroup end

@@ -49,8 +49,11 @@ cabbr <expr> %% expand('%:p:h')
 
 " Don't use ESC to exit normal mode
 inoremap jk <esc>
-inoremap <esc> <Nop>
+" inoremap <esc> <Nop>
 
 " Allow quick edit of vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Only use CtrlP for buffersearch
+let g:ctrlp_cmd = 'CtrlPBuffer'

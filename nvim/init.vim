@@ -52,6 +52,10 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'autozimu/LanguageClient-neovim'
 
+" ripgrep
+Plugin 'jremmen/vim-ripgrep'
+
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 
@@ -60,7 +64,7 @@ filetype plugin indent on
 let g:deoplete#enable_at_startup = 1
 
 " Get colors ok on white backgroup
-set background=light
+set background=dark
 
 source ~/dotfiles/augroup.vim
 source ~/dotfiles/common.vim
@@ -73,5 +77,7 @@ let g:LanguageClient_serverCommands = {
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 
-noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+noremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <F6> :call LanguageClient_contextMenu()<CR>
 

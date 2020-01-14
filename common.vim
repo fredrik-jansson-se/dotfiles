@@ -16,7 +16,8 @@ set expandtab
 set number " show linenumbers
 set nowrap " no wrapping
 
-set wildmode=list:longest:full
+" set wildmode=list:longest:full
+set wildmode=list:full
 
 " Disable mouse
 set mouse=
@@ -98,7 +99,8 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 
 " Airline
-let g:airline_theme='light'
+" let g:airline_theme='light'
+let g:airline_theme='dark'
 
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
