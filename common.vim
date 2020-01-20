@@ -16,6 +16,9 @@ set expandtab
 set number " show linenumbers
 set nowrap " no wrapping
 
+" Set split right, this will make the focus on the right hand split
+set splitright
+
 " set wildmode=list:longest:full
 set wildmode=list:full
 
