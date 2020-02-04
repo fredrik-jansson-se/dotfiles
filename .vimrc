@@ -50,25 +50,25 @@ Plugin 'fredrik-jansson-se/vim-yang'
 " Plugin 'Shougo/vimproc'
 
 " Ag/Ack search, see Ag search below
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 
 " Go
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 " FZF
-Plugin 'junegunn/fzf.vim'
+" Plugin 'junegunn/fzf.vim'
 
 " Autocomplete
 " Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
 
 " Rust
 Plugin 'rust-lang/rust.vim'
+Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Rename new_name.sh
@@ -76,28 +76,37 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " SudoWrite
 Plugin 'tpope/vim-eunuch'
 
+Plugin 'ctrlpvim/ctrlp.vim'
+
 call vundle#end()
 
 source ~/dotfiles/augroup.vim
 source ~/dotfiles/common.vim
 source ~/dotfiles/keymaps.vim
 
-" Syntastic
-set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" RUST
+"
 if executable('rls')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'cmd': {server_info->['rls']},
         \ 'whitelist': ['rust'],
         \ })
 endif
 
-" Deoplete
-call deoplete#custom#option({
-      \ 'auto_complete_delay': 200,
-      \ 'smart_case': v:true,
-      \ })
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  " refer to doc to add more commands
+endfunction
 
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for anguages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" Get colors ok on white backgroup
+set background=dark
