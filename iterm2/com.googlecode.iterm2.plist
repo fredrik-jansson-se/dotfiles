@@ -70,17 +70,21 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>560 566 799 448 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1223 1330 1620 1047 -1223 1200 3840 2160 </string>
+	<string>219 725 570 452 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1093 1315 1095 1302 -372 1200 2560 1417 </string>
+	<string>-372 1200 1277 1417 -372 1200 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-372 1925 570 452 -372 1200 2560 1417 </string>
+	<string>0 232 1305 945 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>540 1556 1788 1523 -1223 1200 3840 2137 </string>
+	<string>-372 2165 570 452 -372 1200 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1194 625 570 452 0 0 1920 1177 </string>
+	<string>875 725 570 452 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-606 1437 570 452 -1223 1200 3840 2137 </string>
+	<string>0 385 1375 792 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>192 653 570 452 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>-584 1635 1347 1234 -1223 1200 3360 1867 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -732,7 +736,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>E4DB0039-5AD6-464E-918D-7CB324CF4529</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>11</integer>
+	<integer>13</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1449,6 +1453,12 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSearchHistory2</key>
+	<array>
+		<string>sear</string>
+		<string>local</string>
+		<string>cfs-notif-kicker</string>
+	</array>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
 	<real>595999972.39782095</real>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -1499,7 +1509,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-08T19:23:16Z</date>
+	<date>2020-01-28T15:51:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SoundForEsc</key>
@@ -1508,6 +1518,8 @@
 	<integer>0</integer>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.3.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
