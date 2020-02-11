@@ -103,7 +103,7 @@ let g:pymode_options = 1
 
 " Airline
 " let g:airline_theme='light'
-let g:airline_theme='dark'
+let g:airline_theme='luna'
 
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1

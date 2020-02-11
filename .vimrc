@@ -18,10 +18,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Sensible settings for VIM
 Plugin 'tpope/vim-sensible'
 
-" Plugin 'scrooloose/nerdtree'
-
 " Syntax checker
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Status line
 Plugin 'vim-airline/vim-airline'
