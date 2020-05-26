@@ -86,8 +86,6 @@ augroup end
 augroup Rust
   autocmd!
   autocmd BufReadPost *.rs setlocal filetype=rust
-  autocmd FileType rust setl signcolumn=yes
-  autocmd FileType rust setl omnifunc=lsp#complete
 augroup end
 
 augroup Asm

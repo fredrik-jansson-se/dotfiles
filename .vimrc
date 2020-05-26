@@ -43,25 +43,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'fredrik-jansson-se/vim-yang'
 
-" Haskell
-" Plugin 'eagletmt/ghcmod-vim.git'
-" Plugin 'Shougo/vimproc'
-
-" Ag/Ack search, see Ag search below
-" Plugin 'mileszs/ack.vim'
-
-" Go
-" Plugin 'fatih/vim-go'
-
-" FZF
-" Plugin 'junegunn/fzf.vim'
-
-" Autocomplete
-" Plugin 'Shougo/neocomplete.vim'
-" Plugin 'Shougo/deoplete.nvim'
-" Plugin 'roxma/nvim-yarp'
-" Plugin 'roxma/vim-hug-neovim-rpc'
-
 " Rust
 Plugin 'rust-lang/rust.vim'
 Plugin 'prabirshrestha/asyncomplete.vim'
@@ -82,12 +63,16 @@ source ~/dotfiles/augroup.vim
 source ~/dotfiles/common.vim
 source ~/dotfiles/keymaps.vim
 
+" ALE
+" Disable ALE LSP since we're using vim-lsp
+let g:ale_disable_lsp=1
+
 " RUST
 "
-if executable('rls')
+if executable('rust-analyzer')
   au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rls']},
+        \ 'name': 'rust-analyzer',
+        \ 'cmd': {server_info->['rust-analyzer']},
         \ 'whitelist': ['rust'],
         \ })
 endif

@@ -36,6 +36,9 @@ nnoremap / /\v
 nnoremap n nzz
 nnoremap N Nzz
 
+" Open the location window with back-tick
+nnoremap ` :lw<cr>
+
 function! JoinWithLineAbove ()
   " appends the line above to the current line
   exe "normal! kddpkJ"
