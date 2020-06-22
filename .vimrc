@@ -57,6 +57,9 @@ Plugin 'tpope/vim-eunuch'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Solarized
+Plugin 'altercation/vim-colors-solarized.git'
+
 call vundle#end()
 
 source ~/dotfiles/augroup.vim
@@ -66,6 +69,10 @@ source ~/dotfiles/keymaps.vim
 " ALE
 " Disable ALE LSP since we're using vim-lsp
 let g:ale_disable_lsp=1
+" let g:ale_linters = {'rust': ['analyzer']}
+
+" nmap <buffer> K <plug>(ale_hover)
+" nmap <buffer> gd <plug>(ale_go_to_definition)
 
 " RUST
 "
@@ -93,4 +100,5 @@ augroup lsp_install
 augroup END
 
 " Get colors ok on white backgroup
-set background=dark
+set background=light
+colorscheme solarized
