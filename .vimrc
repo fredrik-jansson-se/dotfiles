@@ -59,7 +59,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Solarized
-Plugin 'altercation/vim-colors-solarized.git'
+" Plugin 'altercation/vim-colors-solarized.git'
 
 call vundle#end()
 
@@ -116,5 +116,6 @@ endfunction
 " augroup END
 
 " Get colors ok on white backgroup
-set background=light
-colorscheme solarized
+" set background=light
+set background=dark
+" colorscheme solarized
