@@ -46,10 +46,6 @@ Plugin 'fredrik-jansson-se/vim-yang'
 " Rust
 Plugin 'rust-lang/rust.vim'
 Plugin 'neoclide/coc.nvim'
-" Plugin 'prabirshrestha/asyncomplete.vim'
-" Plugin 'prabirshrestha/async.vim'
-" Plugin 'prabirshrestha/vim-lsp'
-" Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Rename new_name.sh
 " Chmod +x
@@ -57,9 +53,6 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'tpope/vim-eunuch'
 
 Plugin 'ctrlpvim/ctrlp.vim'
-
-" Solarized
-" Plugin 'altercation/vim-colors-solarized.git'
 
 call vundle#end()
 
@@ -70,16 +63,14 @@ source ~/dotfiles/keymaps.vim
 " ALE
 " Disable ALE LSP since we're using vim-lsp
 let g:ale_disable_lsp=1
-" let g:ale_linters = {'rust': ['analyzer']}
-
-" nmap <buffer> K <plug>(ale_hover)
-" nmap <buffer> gd <plug>(ale_go_to_definition)
 
 " COC
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>rn <Plug>(coc-rename)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -90,30 +81,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" RUST
-"
-" if executable('rust-analyzer')
-"   au User lsp_setup call lsp#register_server({
-"         \ 'name': 'rust-analyzer',
-"         \ 'cmd': {server_info->['rust-analyzer']},
-"         \ 'whitelist': ['rust'],
-"         \ })
-" endif
-
-" function! s:on_lsp_buffer_enabled() abort
-"   setlocal omnifunc=lsp#complete
-"   setlocal signcolumn=yes
-"   nmap <buffer> gd <plug>(lsp-definition)
-"   nmap <buffer> K <plug>(lsp-hover)
-"   nmap <buffer> <f2> <plug>(lsp-rename)
-"   " refer to doc to add more commands
-" endfunction
-
-" augroup lsp_install
-"   au!
-"   " call s:on_lsp_buffer_enabled only for anguages that has the server registered.
-"   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-" augroup END
+" For COC make the popup bg color blue
+highlight CocFloating ctermbg=darkblue
 
 " Get colors ok on white backgroup
 " set background=light

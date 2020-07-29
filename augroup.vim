@@ -98,3 +98,8 @@ augroup Markdown
   autocmd!
   autocmd FileType markdown set wrap|set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
 augroup end
+
+augroup Protobuf
+  autocmd!
+  autocmd FileType proto set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
+augroup end
