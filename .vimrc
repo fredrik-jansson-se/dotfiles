@@ -81,6 +81,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+nnoremap <leader>em :CocCommand rust-analyzer.expandMacro<CR>
+
 " For COC make the popup bg color blue
 highlight CocFloating ctermbg=darkblue
 
