@@ -54,6 +54,8 @@ Plugin 'tpope/vim-eunuch'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 
+Plugin 'tpope/vim-surround'
+
 call vundle#end()
 
 source ~/dotfiles/augroup.vim
