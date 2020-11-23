@@ -62,6 +62,7 @@ augroup go
   autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
+  " autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 augroup end
 
 augroup toml
