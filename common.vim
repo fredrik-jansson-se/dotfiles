@@ -1,4 +1,4 @@
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " For Vundle
 filetype plugin indent on
@@ -34,8 +34,8 @@ set termguicolors
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-set backupdir=/tmp/
-set directory=/tmp/
+" set backupdir=.vim-backup,/tmp/
+set directory=~/tmp/
 
 " Ignore whitespace in diff
 if &diff
