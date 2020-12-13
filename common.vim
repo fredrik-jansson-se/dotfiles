@@ -1,8 +1,3 @@
-" let g:deoplete#enable_at_startup = 1
-
-" For Vundle
-filetype plugin indent on
-
 set hlsearch " hightligh searches
 set ignorecase
 set smartcase
