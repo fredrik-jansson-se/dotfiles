@@ -2,12 +2,12 @@
 nnoremap Q <Nop>
 
 " Tab navigation
-nnoremap <C-k>  :tabfirst<CR>
-nnoremap <C-l>  :tabnext<CR>
-nnoremap <C-h>  :tabprev<CR>
-nnoremap <C-j>  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap td  :tabclose<CR>
+" nnoremap <C-k>  :tabfirst<CR>
+" nnoremap <C-l>  :tabnext<CR>
+" nnoremap <C-h>  :tabprev<CR>
+" nnoremap <C-j>  :tablast<CR>
+" nnoremap tt  :tabedit<Space>
+" nnoremap td  :tabclose<CR>
 
 "====[ Swap : and ; to make colon commands easier to type ]======
 nnoremap ; :
@@ -39,12 +39,12 @@ nnoremap N Nzz
 " Open the location window with back-tick
 nnoremap ` :lw<cr>
 
-function! JoinWithLineAbove ()
-  " appends the line above to the current line
-  exe "normal! kddpkJ"
-endfunction
+" function! JoinWithLineAbove ()
+"   " appends the line above to the current line
+"   exe "normal! kddpkJ"
+" endfunction
 
-nnoremap <silent> <C-J> :call JoinWithLineAbove()<CR>
+" nnoremap <silent> <C-J> :call JoinWithLineAbove()<CR>
 
 " Allow %%/ to be expanded to current files directory, e.g. in tabedit and
 " edit file

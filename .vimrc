@@ -70,6 +70,13 @@ source ~/dotfiles/keymaps.vim
 let g:ale_disable_lsp=1
 
 " COC
+" faster triggering of e.g. CursorHold
+set updatetime=300
+" give more height for displaying messages
+set cmdheight=2
+" mix signcolumn and number column
+set signcolumn=number
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -87,6 +94,13 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Scroll floating windows
+nnoremap <nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-d>"
+nnoremap <nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
+
+" Highlight keywords in file
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <leader>em :CocCommand rust-analyzer.expandMacro<CR>
 
