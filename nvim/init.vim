@@ -339,10 +339,10 @@ augroup YANG
   autocmd FileType yang set expandtab
 augroup end
 
-augroup Rust
-  autocmd!
-  autocmd BufReadPost *.rs setlocal filetype=rust
-augroup end
+" augroup Rust
+"   autocmd!
+"   autocmd BufReadPost *.rs setlocal filetype=rust
+" augroup end
 
 augroup Asm
   autocmd!

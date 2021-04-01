@@ -1,0 +1,4 @@
+--type-add
+yang:*.yang
+--type-add
+lux:*.lux
