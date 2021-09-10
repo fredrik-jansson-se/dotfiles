@@ -2,6 +2,9 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" ALE
+" Disable ALE LSP since we're using vim-lsp
+let g:ale_disable_lsp=1
 
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
@@ -60,9 +63,6 @@ filetype plugin indent on
 " Dark mode
 set background=dark
 
-" ALE
-" Disable ALE LSP since we're using vim-lsp
-let g:ale_disable_lsp=1
 
 " COC
 " faster triggering of e.g. CursorHold
@@ -93,8 +93,14 @@ function! s:show_documentation()
 endfunction
 
 " Scroll floating windows
-nnoremap <nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-d>"
-nnoremap <nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " Highlight keywords in file
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -135,7 +141,7 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " Open the location window with back-tick
-nnoremap ` :lw<cr>
+nnoremap ` :CocDiagnostics<cr>:lw<cr>
 
 " Allow %%/ to be expanded to current files directory, e.g. in tabedit and
 " edit file
@@ -317,13 +323,17 @@ augroup go
   autocmd FileType go set tabstop=2|set shiftwidth=2|set noexpandtab
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
-  " autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 augroup end
 
 augroup toml
   autocmd!
   autocmd BufRead,BufNewFile *.toml setlocal commentstring=#\ %s
 augroup end
+
+" augroup Rust
+"   autocmd!
+"   autocmd BufReadPost *.rs setlocal filetype=rust
+" augroup end
 
 augroup haskell
   " https://monicalent.com/blog/2017/11/19/haskell-in-vim/
@@ -338,11 +348,6 @@ augroup YANG
   autocmd!
   autocmd FileType yang set expandtab
 augroup end
-
-" augroup Rust
-"   autocmd!
-"   autocmd BufReadPost *.rs setlocal filetype=rust
-" augroup end
 
 augroup Asm
   autocmd!
