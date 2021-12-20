@@ -174,7 +174,8 @@ set nowrap " no wrapping
 set splitright
 
 " set wildmode=list:longest:full
-set wildmode=list:full
+" set wildmode=list:full
+set wildmode=longest:full
 
 " Disable mouse
 set mouse=
