@@ -111,6 +111,7 @@ nnoremap <leader>em :CocCommand rust-analyzer.expandMacro<CR>
 " Rust
 let g:rustfmt_autosave = 1
 
+
 " Disable Ex mode
 nnoremap Q <Nop>
 
@@ -374,9 +375,16 @@ augroup toml
   autocmd BufRead,BufNewFile *.toml setlocal commentstring=#\ %s
 augroup end
 
+augroup lua
+  autocmd!
+  autocmd FileType lua set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
+augroup end
+
+let g:ale_linters = {'rust': ['clippy']}
+
 " augroup Rust
 "   autocmd!
-"   autocmd BufReadPost *.rs setlocal filetype=rust
+"   autocmd let g:ale_linters = {'rust': ['cargo']}
 " augroup end
 
 augroup haskell
