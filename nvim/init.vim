@@ -51,7 +51,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'neoclide/coc.nvim'
 
 " ripgrep
-Plugin 'jremmen/vim-ripgrep'
+" Plugin 'jremmen/vim-ripgrep'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
@@ -154,7 +154,7 @@ inoremap jk <esc>
 " inoremap <esc> <Nop>
 
 " Allow quick edit of vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Only use CtrlP for buffersearch
@@ -265,6 +265,7 @@ let g:airline#extensions#ale#enabled = 1
 " FZF
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -298,11 +299,15 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
+nnoremap <leader>rg :RG <enter>
+
 " Git grep
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+nnoremap <leader>gg :GGrep <enter>
 
 augroup java
   autocmd!
