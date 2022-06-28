@@ -2,3 +2,5 @@
 yang:*.yang
 --type-add
 lux:*.lux
+--type-add
+erl:*.erl

@@ -1,4 +1,9 @@
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+"
+
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
