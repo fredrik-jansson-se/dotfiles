@@ -90,6 +90,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 nmap <leader>rn <Plug>(coc-rename)
 
+nmap <leader>ac <Plug>(coc-codeaction-cursor)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
