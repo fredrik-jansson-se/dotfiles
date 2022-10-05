@@ -69,7 +69,8 @@ call vundle#end()
 filetype plugin indent on
 
 " Dark mode
-set background=dark
+" set background=dark
+set background=light
 
 
 " COC
@@ -265,7 +266,8 @@ let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 
 " Airline
-let g:airline_theme='luna'
+" let g:airline_theme='luna'
+let g:airline_theme='silver'
 
 " Airline and Ale
 let g:airline#extensions#ale#enabled = 1
