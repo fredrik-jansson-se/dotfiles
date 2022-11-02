@@ -11,60 +11,7 @@ filetype off                  " required
 " Disable ALE LSP since we're using vim-lsp
 let g:ale_disable_lsp=1
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
-
-" let Vundle manage Vundle
-" required!
-Plugin 'VundleVim/Vundle.vim'
-
-" Sensible settings for VIM
-Plugin 'tpope/vim-sensible'
-
-" [ <space> etc
-Plugin 'tpope/vim-unimpaired'
-
-" Git
-Plugin 'tpope/vim-fugitive'
-
-" Rename new_name.sh
-" Chmod +x
-" SudoWrite
-Plugin 'tpope/vim-eunuch'
-
-" Syntax checker
-Plugin 'w0rp/ale'
-
-" comment with gc
-Plugin 'tpope/vim-commentary.git'
-
-" Status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'othree/xml.vim'
-Plugin 'python-mode/python-mode'
-
-" Lux
-Plugin 'tbjurman/vim-lux'
-
-Plugin 'fredrik-jansson-se/vim-yang'
-
-
-" Rust
-Plugin 'rust-lang/rust.vim'
-Plugin 'neoclide/coc.nvim'
-
-" ripgrep
-" Plugin 'jremmen/vim-ripgrep'
-
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-
-call vundle#end()
+:lua require('plugins')
 
 filetype plugin indent on
 
