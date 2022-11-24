@@ -364,6 +364,7 @@ augroup Asm
   autocmd!
   autocmd FileType asm set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
   autocmd BufRead,BufNewFile *.asm setlocal commentstring=;\ %s
+  autocmd BufRead,BufNewFile *.asm setlocal ft=nasm
 augroup end
 
 augroup Markdown

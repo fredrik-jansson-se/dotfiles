@@ -5,5 +5,5 @@
     "rust-analyzer.checkOnSave.features": "all",
     "rust-analyzer.trace.server": "verbose",
     "rust-analyzer.cargo.autoreload": true,
-    "rust-analyzer.updates.channel": "nightly"
+    "rust-analyzer.updates.channel": "stable"
 }
