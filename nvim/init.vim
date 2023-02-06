@@ -376,3 +376,8 @@ augroup Protobuf
   autocmd!
   autocmd FileType proto set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
 augroup end
+
+augroup cpp
+  autocmd!
+  autocmd FileType cpp set shiftwidth=2|set tabstop=2|set smarttab|set smartindent|set autoindent
+augroup end
