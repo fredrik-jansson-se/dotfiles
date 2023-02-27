@@ -8,10 +8,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- let Vundle manage Vundle
-  -- required!
-  use 'VundleVim/Vundle.vim'
-
   -- Sensible settings for VIM
   use 'tpope/vim-sensible'
 
