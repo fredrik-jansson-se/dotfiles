@@ -47,18 +47,27 @@ return require('packer').startup(function(use)
   -- use 'rust-lang/rust.vim'
   -- use {'neoclide/coc.nvim', branch = 'release'}
 
-  use 'ctrlpvim/ctrlp.vim'
-  -- use 'tpope/vim-surround'
+  -- use 'ctrlpvim/ctrlp.vim'
+  use 'tpope/vim-surround'
 
+  use {
+    'nvim-telescope/telescope.nvim', branch = 'master',
+    requires = { {'nvim-lua/plenary.nvim'}, 
+      {'BurntSushi/ripgrep'} }
+  }
   -- use 'junegunn/fzf'
   -- use 'junegunn/fzf.vim'
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
-	  requires = {
+    requires = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason.nvim', 
+        run = function() 
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
 		  {'williamboman/mason-lspconfig.nvim'},
 
 		  -- Autocompletion
