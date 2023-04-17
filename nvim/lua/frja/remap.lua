@@ -17,3 +17,6 @@ end)
 
 -- disable Q
 vim.keymap.set("n", "Q", "<nop>")
+
+-- use magic when searching
+vim.keymap.set("n", "/", "/\\v")
