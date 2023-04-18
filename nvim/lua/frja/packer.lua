@@ -38,9 +38,9 @@ return require('packer').startup(function(use)
   -- use 'python-mode/python-mode'
 
   -- Lux
-  -- use 'tbjurman/vim-lux'
+  use 'tbjurman/vim-lux'
 
-  -- use 'fredrik-jansson-se/vim-yang'
+  use 'fredrik-jansson-se/vim-yang'
 
 
   -- Rust
