@@ -8,15 +8,15 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
+-- lsp.configure('lua-language-server', {
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim' }
+--             }
+--         }
+--     }
+-- })
 
 
 local cmp = require('cmp')
@@ -25,6 +25,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ['<CR>'] = cmp.mapping.confirm({select = true}),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -63,9 +64,11 @@ lsp.on_attach(function(client, bufnr)
     vim.lsp.stop_client(vim.lsp.get_active_clients())
     -- reload file
     -- vim.cmd([[edit]])
-    -- print("lsp restarted")
+    print("lsp restarted")
   end)
 end)
+
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
