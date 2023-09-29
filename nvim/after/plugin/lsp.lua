@@ -6,7 +6,7 @@ local cmp_action = lsp_zero.cmp_action()
 cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
       ['<Alt-Space>'] = cmp.mapping.complete(),
@@ -36,6 +36,7 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
   local opts = {buffer = bufnr, remap = false}
 
+  vim.keymap.set("n", "<leader>ac", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>fb", function() vim.lsp.buf.format() end, opts)
   -- vim.keymap.set("n", "<leader>rel", function()
   --   vim.lsp.stop_client(vim.lsp.get_active_clients())
