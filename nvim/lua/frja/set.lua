@@ -38,3 +38,9 @@ vim.g.loaded_perl_provider=0
 --Allow %%/ to be expanded to current files directory
 vim.cmd [[cabbr <expr> %% expand('%:p:h')]]
 
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.ts"},
+  callback = function() 
+    vim.opt.expandtab = false
+  end 
+})
