@@ -43,11 +43,6 @@ return require('packer').startup(function(use)
   use 'fredrik-jansson-se/vim-yang'
 
 
-  -- Rust
-  -- use 'rust-lang/rust.vim'
-  -- use {'neoclide/coc.nvim', branch = 'release'}
-
-  -- use 'ctrlpvim/ctrlp.vim'
   use 'tpope/vim-surround'
 
   use {
@@ -55,8 +50,6 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'}, 
       {'BurntSushi/ripgrep'} }
   }
-  -- use 'junegunn/fzf'
-  -- use 'junegunn/fzf.vim'
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',
