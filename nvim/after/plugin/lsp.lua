@@ -36,22 +36,20 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
   local opts = {buffer = bufnr, remap = false}
 
-  vim.keymap.set("n", "<leader>ac", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>fb", function() vim.lsp.buf.format() end, opts)
-  -- vim.keymap.set("n", "<leader>rel", function()
-  --   vim.lsp.stop_client(vim.lsp.get_active_clients())
-  --   print("lsp restarted")
-  -- end)
 end)
+
+vim.g.rustaceanvim = {
+  server = {
+    capabilites = lsp_zero.get_capabilities()
+  },
+}
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {'rust_analyzer'},
   handlers = {
     lsp_zero.default_setup,
+    rust_analyzer = lsp_zero.noop,
   },
 })
-
--- vim.diagnostic.config({
---     virtual_text = true
--- })
