@@ -47,7 +47,7 @@ vim.g.rustaceanvim = {
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'rust_analyzer'},
+  ensure_installed = {'rust_analyzer', 'pylsp'},
   handlers = {
     lsp_zero.default_setup,
     rust_analyzer = lsp_zero.noop,
