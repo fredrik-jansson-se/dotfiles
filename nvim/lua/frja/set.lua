@@ -18,6 +18,7 @@ vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 vim.opt.background="light"
+vim.cmd 'colorscheme vim'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "number"
@@ -44,3 +45,5 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     vim.opt.expandtab = false
   end 
 })
+
+vim.g.python3_host_prog = os.getenv("HOME") .. 'nvim-venv/bin/python3'

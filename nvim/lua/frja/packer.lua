@@ -27,27 +27,16 @@ return require('packer').startup(function(use)
   -- Syntax checker
   -- use 'w0rp/ale'
 
-  -- comment with gc
-  use 'tpope/vim-commentary'
-
-  -- Status line
-  -- use 'vim-airline/vim-airline'
-  -- use 'vim-airline/vim-airline-themes'
-
-  -- use 'othree/xml.vim'
-  -- use 'python-mode/python-mode'
-
   -- Lux
   use 'tbjurman/vim-lux'
 
   use 'fredrik-jansson-se/vim-yang'
 
-
   use 'tpope/vim-surround'
 
   use {
     'nvim-telescope/telescope.nvim', branch = 'master',
-    requires = { {'nvim-lua/plenary.nvim'}, 
+    requires = { {'nvim-lua/plenary.nvim'},
       {'BurntSushi/ripgrep'} }
   }
   use {
