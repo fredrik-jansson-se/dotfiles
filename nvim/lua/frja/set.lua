@@ -46,4 +46,4 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   end 
 })
 
-vim.g.python3_host_prog = os.getenv("HOME") .. 'nvim-venv/bin/python3'
+vim.g.python3_host_prog = os.getenv("HOME") .. '/nvim-venv/bin/python3'
