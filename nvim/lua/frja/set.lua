@@ -16,11 +16,12 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- Disable wrapping search
-vim.opt.wrapscan = false
+--vim.opt.wrapscan = false
 
 vim.opt.termguicolors = true
-vim.opt.background="light"
-vim.cmd 'colorscheme vim'
+-- vim.opt.background="dark"
+-- vim.cmd 'colorscheme vim'
+vim.cmd 'colorscheme catppuccin-mocha'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "number"
