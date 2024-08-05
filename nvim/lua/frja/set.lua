@@ -45,8 +45,8 @@ vim.cmd [[cabbr <expr> %% expand('%:p:h')]]
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.ts", "*.vue", "*.js"},
   callback = function() 
-    vim.opt.expandtab = false
-  end 
+    vim.opt_local.expandtab = false
+  end
 })
 
 vim.g.python3_host_prog = os.getenv("HOME") .. '/nvim-venv/bin/python3'
