@@ -20,3 +20,8 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- use magic when searching
 vim.keymap.set("n", "/", "/\\v")
+
+-- use L to show diagnostic
+vim.keymap.set("n", "L", function()
+  vim.diagnostic.open_float()
+end)
