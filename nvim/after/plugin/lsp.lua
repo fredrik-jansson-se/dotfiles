@@ -1,49 +1,65 @@
-local lsp_zero = require("lsp-zero")
+-- https://lsp-zero.netlify.app/docs/getting-started.html
+
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
+-- This is where you enable features that only work
+-- if there is a language server active in the file
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
+
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set('n', '<leader>fb', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  end,
+})
 
 local cmp = require('cmp')
-local cmp_action = lsp_zero.cmp_action()
 
 cmp.setup({
-  window = {
-    completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  },
+  snippet = {
+    expand = function(args) 
+      vim.snippet.expand(args.body)
+    end,
   },
   mapping = cmp.mapping.preset.insert({
       ['<Alt-Space>'] = cmp.mapping.complete(),
-      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
       ['<CR>'] = cmp.mapping.confirm({select = true}),
   }),
-  sources = {
-    {name = 'nvim_lsp'},
-    {name = 'buffer'},
-  }
+  -- window = {
+  --   completion = cmp.config.window.bordered(),
+--     -- documentation = cmp.config.window.bordered(),
+  -- },
 })
 
-lsp_zero.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
-})
-
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
-  local opts = {buffer = bufnr, remap = false}
-
-  vim.keymap.set("n", "<leader>fb", function() vim.lsp.buf.format() end, opts)
-end)
-
-vim.g.rustaceanvim = {
-  server = {
-    capabilites = lsp_zero.get_capabilities()
-  },
-}
+-- vim.g.rustaceanvim = {
+--   server = {
+--     capabilites = lsp_zero.get_capabilities()
+--   },
+-- }
 
 require('mason').setup({})
 
@@ -55,8 +71,6 @@ require('mason-lspconfig').setup({
     'ts_ls',
   },
   handlers = {
-    lsp_zero.default_setup,
-    rust_analyzer = lsp_zero.noop,
     volar = function()
       require('lspconfig').volar.setup({})
     end,

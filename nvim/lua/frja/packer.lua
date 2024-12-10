@@ -24,9 +24,6 @@ return require('packer').startup(function(use)
   -- SudoWrite
   use 'tpope/vim-eunuch'
 
-  -- Syntax checker
-  -- use 'w0rp/ale'
-
   -- Lux
   use 'tbjurman/vim-lux'
 
@@ -39,27 +36,13 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'},
       {'BurntSushi/ripgrep'} }
   }
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v3.x',
-    requires = {
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
 
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-
-      { 'mrcjkb/rustaceanvim',
-        branch = 'master' }
-	  }
-  }
+  use {'neovim/nvim-lspconfig'}
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'williamboman/mason.nvim'}
+  use {'williamboman/mason-lspconfig.nvim'}
+  use{ 'mrcjkb/rustaceanvim', branch = 'master' }
 
   use { "catppuccin/nvim", as = "catppuccin" }
 
