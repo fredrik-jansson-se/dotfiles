@@ -55,12 +55,6 @@ cmp.setup({
   -- },
 })
 
--- vim.g.rustaceanvim = {
---   server = {
---     capabilites = lsp_zero.get_capabilities()
---   },
--- }
-
 require('mason').setup({})
 
 require('mason-lspconfig').setup({
@@ -74,14 +68,14 @@ require('mason-lspconfig').setup({
     volar = function()
       require('lspconfig').volar.setup({})
     end,
-  ts_ls = function()
-    local vue_typescript_plugin = require('mason-registry')
+    ts_ls = function()
+      local vue_typescript_plugin = require('mason-registry')
       .get_package('vue-language-server')
       :get_install_path()
       .. '/node_modules/@vue/language-server'
       .. '/node_modules/@vue/typescript-plugin'
 
-    require('lspconfig').ts_ls.setup({
+      require('lspconfig').ts_ls.setup({
         init_options = {
           plugins = {
             {
@@ -100,6 +94,30 @@ require('mason-lspconfig').setup({
           'typescript.tsx',
           'vue',
         },
+      })
+    end,
+    pylsp = function()
+      require('lspconfig').pylsp.setup({
+        settings = {
+          pylsp = {
+            plugins = {
+              -- formatter options
+              black = { enabled = true },
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              -- linter options
+              pylint = { enabled = false, executable = "pylint" },
+              pyflakes = { enabled = true, ignore = { 'E501' } },
+              pycodestyle = { enabled = false },
+              -- type checker
+              pylsp_mypy = { enabled = true },
+              -- auto-completion options
+              jedi_completion = { fuzzy = true },
+              -- import sorting
+              pyls_isort = { enabled = true },
+            }
+          }
+        }
       })
     end,
   },
