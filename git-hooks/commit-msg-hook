@@ -1,0 +1,12 @@
+#!/bin/sh
+# Enforce commit message format: "TYPE: Short description"
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(head -n 1 "$COMMIT_MSG_FILE")
+
+# Regular expression for "TYPE: Short description"
+if ! echo "$COMMIT_MSG" | grep -Eq "^(feat|fix|docs|style|refactor|test|chore): .{10,}$"; then
+  echo "ERROR: Commit message must follow 'TYPE: Short description' format."
+  echo "Valid types: feat, fix, docs, style, refactor, test, chore."
+  exit 1
+fi

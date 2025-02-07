@@ -15,5 +15,6 @@
 	enabled = true
 [core]
 	pager = delta
+	hooksPath = ~/dotfiles/git-hooks
 [diff]
 	algorithm = histogram
