@@ -26,6 +26,7 @@ vim.cmd 'colorscheme catppuccin-mocha'
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "number"
 -- vim.opt.isfname:append("@-@")
+vim.opt.wildmode = "list:longest,list:full"
 
 vim.opt.updatetime = 50
 

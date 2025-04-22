@@ -46,4 +46,6 @@ return require('packer').startup(function(use)
 
   use { "catppuccin/nvim", as = "catppuccin" }
 
+  use { 'Julian/lean.nvim' }
+
 end)
