@@ -45,7 +45,4 @@ return require('packer').startup(function(use)
   use{ 'mrcjkb/rustaceanvim', branch = 'master' }
 
   use { "catppuccin/nvim", as = "catppuccin" }
-
-  use { 'Julian/lean.nvim' }
-
 end)

@@ -122,6 +122,3 @@ require('mason-lspconfig').setup({
     end,
   },
 })
-
-
-require('lean').setup{ mappings = true }
