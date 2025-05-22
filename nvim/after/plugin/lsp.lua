@@ -61,13 +61,9 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'rust_analyzer',
     'pylsp',
-    'volar',
     'ts_ls',
   },
   handlers = {
-    volar = function()
-      require('lspconfig').volar.setup({})
-    end,
     ts_ls = function()
       local vue_typescript_plugin = require('mason-registry')
       .get_package('vue-language-server')
