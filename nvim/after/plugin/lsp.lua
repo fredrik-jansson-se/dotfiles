@@ -64,6 +64,9 @@ require('mason-lspconfig').setup({
     'ts_ls',
   },
   handlers = {
+    bashls = function() 
+      require('lspconfig').bashls.setup({})
+    end,
     ts_ls = function()
       local vue_typescript_plugin = require('mason-registry')
       .get_package('vue-language-server')
