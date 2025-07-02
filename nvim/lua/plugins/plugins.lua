@@ -41,13 +41,16 @@ return {
     {'hrsh7th/cmp-nvim-lsp'}
   },
   {
-    {'williamboman/mason.nvim'}
+    'mason-org/mason-lspconfig.nvim',
+     opts = {},
+     dependencies = {
+       { "mason-org/mason.nvim", opts = {} },
+       "neovim/nvim-lspconfig",
+     },
   },
   {
-    {'williamboman/mason-lspconfig.nvim'}
-  },
-  {
-    { 'mrcjkb/rustaceanvim', branch = 'master' }
+    'mrcjkb/rustaceanvim', 
+    branch = 'master'
   },
   {
     "catppuccin/nvim",
@@ -55,6 +58,6 @@ return {
     lazy= false,
   },
   {
-    { "github/copilot.vim" }
+    "github/copilot.vim"
   },
 }
