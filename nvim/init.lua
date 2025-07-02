@@ -1,1 +1,1 @@
-require("frja")
+require("config")
