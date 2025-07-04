@@ -19,43 +19,43 @@ return {
     -- SudoWrite
     'tpope/vim-eunuch'
   },
---  -- Lux
---  use 'tbjurman/vim-lux'
---  use 'fredrik-jansson-se/vim-yang'
+  --  -- Lux
+  --  use 'tbjurman/vim-lux'
+  --  use 'fredrik-jansson-se/vim-yang'
   {
     'tpope/vim-surround'
   },
   {
     'nvim-telescope/telescope.nvim',
     branch = 'master',
-    dependencies = { {'nvim-lua/plenary.nvim'},
-    {'BurntSushi/ripgrep'} }
+    dependencies = { { 'nvim-lua/plenary.nvim' },
+      { 'BurntSushi/ripgrep' } }
   },
   {
-    {'neovim/nvim-lspconfig'}
+    { 'neovim/nvim-lspconfig' }
   },
   {
-    {'hrsh7th/nvim-cmp'}
+    { 'hrsh7th/nvim-cmp' }
   },
   {
-    {'hrsh7th/cmp-nvim-lsp'}
+    { 'hrsh7th/cmp-nvim-lsp' }
   },
   {
     'mason-org/mason-lspconfig.nvim',
-     opts = {},
-     dependencies = {
-       { "mason-org/mason.nvim", opts = {} },
-       "neovim/nvim-lspconfig",
-     },
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
   {
-    'mrcjkb/rustaceanvim', 
+    'mrcjkb/rustaceanvim',
     branch = 'master'
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy= false,
+    lazy = false,
   },
   {
     "github/copilot.vim"
