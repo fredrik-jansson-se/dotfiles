@@ -58,7 +58,6 @@ cmp.setup({
 require('mason-lspconfig').setup({
   ensure_installed = {
     'rust_analyzer',
-    'pylsp',
     'ts_ls',
   },
   handlers = {
@@ -91,30 +90,6 @@ require('mason-lspconfig').setup({
           'typescript.tsx',
           'vue',
         },
-      })
-    end,
-    pylsp = function()
-      require('lspconfig').pylsp.setup({
-        settings = {
-          pylsp = {
-            plugins = {
-              -- formatter options
-              black = { enabled = true },
-              autopep8 = { enabled = false },
-              yapf = { enabled = false },
-              -- linter options
-              pylint = { enabled = false, executable = "pylint" },
-              pyflakes = { enabled = true, ignore = { 'E501' } },
-              pycodestyle = { enabled = false },
-              -- type checker
-              pylsp_mypy = { enabled = true },
-              -- auto-completion options
-              jedi_completion = { fuzzy = true },
-              -- import sorting
-              pyls_isort = { enabled = true },
-            }
-          }
-        }
       })
     end,
   },
