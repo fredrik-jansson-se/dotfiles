@@ -1,9 +1,0 @@
-{
-    "codeLens.enable": false,
-    "diagnostic.displayByAle": true,
-    "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.checkOnSave.features": "all",
-    "rust-analyzer.trace.server": "off",
-    "rust-analyzer.cargo.autoreload": true,
-    "rust-analyzer.updates.channel": "stable"
-}
