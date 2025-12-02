@@ -57,7 +57,7 @@ return {
     name = "catppuccin",
     lazy = false,
   },
-  {
-    "github/copilot.vim"
-  },
+  -- {
+  --   "github/copilot.vim"
+  -- },
 }
