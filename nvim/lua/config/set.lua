@@ -51,3 +51,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 vim.g.python3_host_prog = os.getenv("HOME") .. '/nvim-venv/bin/python3'
+
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+}
