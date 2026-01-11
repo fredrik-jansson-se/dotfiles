@@ -58,7 +58,7 @@ cmp.setup({
 require('mason-lspconfig').setup({
   ensure_installed = {
     'rust_analyzer',
-    'ts_ls',
+    -- 'ts_ls',
   },
   handlers = {
     bashls = function() 
