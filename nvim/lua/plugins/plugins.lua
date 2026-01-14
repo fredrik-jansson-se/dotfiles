@@ -58,5 +58,14 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
+    opts = {
+      highlight_overrides = {
+        mocha = function(mocha)
+          return {
+            LineNr = { fg = mocha.teal },
+          }
+        end
+      }
+    },
   },
 }
