@@ -1,3 +1,6 @@
+-- Disable LSP logging
+vim.lsp.set_log_level("off")
+
 -- https://lsp-zero.netlify.app/docs/getting-started.html
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
