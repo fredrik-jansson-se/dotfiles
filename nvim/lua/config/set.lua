@@ -52,6 +52,10 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 
 vim.g.python3_host_prog = os.getenv("HOME") .. '/nvim-venv/bin/python3'
 
+-- Better git diffs
+-- vim.opt.foldmethod='syntax'
+vim.opt.diffopt="internal,filler,closeoff,linematch:40,vertical"
+
 vim.g.copilot_filetypes = {
   ["*"] = false,
 }
