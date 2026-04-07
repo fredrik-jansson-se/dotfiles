@@ -59,3 +59,6 @@ vim.opt.diffopt="internal,filler,closeoff,linematch:40,vertical"
 vim.g.copilot_filetypes = {
   ["*"] = false,
 }
+
+-- Add no select to force manual selection of items
+vim.opt.completeopt =  { "menu", "menuone", "noselect", "popup" }

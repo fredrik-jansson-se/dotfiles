@@ -5,9 +5,6 @@ return {
     build = ':TSUpdate',
   },
   {
-    'tpope/vim-sensible'
-  },
-  {
     -- [ <space> etc
     'tpope/vim-unimpaired'
   },
@@ -32,26 +29,19 @@ return {
     branch = 'master',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
-  {
-    { 'neovim/nvim-lspconfig' }
-  },
-  {
-    { 'hrsh7th/nvim-cmp' }
-  },
-  {
-    { 'hrsh7th/cmp-nvim-lsp' }
-  },
-  {
-    'mason-org/mason-lspconfig.nvim',
-    opts = {},
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
-    },
-  },
+  -- {
+  --   { 'hrsh7th/nvim-cmp' }
+  -- },
+  -- {
+  --   { 'hrsh7th/cmp-nvim-lsp' }
+  -- },
   {
     'mrcjkb/rustaceanvim',
     branch = 'master'
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {}
   },
   {
     "catppuccin/nvim",

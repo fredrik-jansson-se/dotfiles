@@ -1,1 +1,1 @@
-require'nvim-treesitter'.install { 'rust', 'cpp', 'bash', 'dockerfile' }
+require'nvim-treesitter'.install { 'rust', 'cpp', 'dockerfile' }

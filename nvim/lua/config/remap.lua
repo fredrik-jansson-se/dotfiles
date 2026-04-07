@@ -1,8 +1,8 @@
 
 vim.g.mapleader = " "
 
-vim.cmd [[nnoremap ; :]]
-vim.cmd [[nnoremap : ;]]
+vim.keymap.set("n", ";", ":")
+vim.keymap.set("n", ":", ";")
 
 -- Swap v and CTRL-V
 vim.keymap.set("n", "v", "<C-V>")

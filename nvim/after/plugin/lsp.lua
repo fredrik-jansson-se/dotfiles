@@ -1,99 +1,68 @@
 -- Disable LSP logging
-vim.lsp.set_log_level("off")
-
--- https://lsp-zero.netlify.app/docs/getting-started.html
-
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
-)
+vim.lsp.log.set_level(vim.log.levels.OFF)
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
-  desc = 'LSP actions',
-  callback = function(event)
-    local opts = {buffer = event.buf}
-
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set('n', '<leader>fb', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  end,
+    callback = function(ev)
+      local opts = {buffer = ev.buf}
+      vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, { autotrigger = true })
+      vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+      vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+      vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+      vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+      vim.keymap.set('n', '<leader>fb', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    end,
 })
 
-local cmp = require('cmp')
+vim.keymap.set('i', '<CR>', function()
+    if vim.fn.pumvisible() == 1 then
+      return '<C-y>'
+    end
+    return '<CR>'
+  end, { expr = true })
 
-cmp.setup({
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  },
-  snippet = {
-    expand = function(args) 
-      vim.snippet.expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-      ['<Alt-Space>'] = cmp.mapping.complete(),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-d>'] = cmp.mapping.scroll_docs(4),
-      ['<CR>'] = cmp.mapping.confirm({select = true}),
-  }),
-  -- window = {
-  --   completion = cmp.config.window.bordered(),
---     -- documentation = cmp.config.window.bordered(),
-  -- },
-})
+-- local cmp = require('cmp')
+--
+-- cmp.setup({
+--   sources = {
+--     { name = 'nvim_lsp' },
+--     { name = 'buffer' },
+--   },
+--   snippet = {
+--     expand = function(args) 
+--       vim.snippet.expand(args.body)
+--     end,
+--   },
+--   mapping = cmp.mapping.preset.insert({
+--       ['<Alt-Space>'] = cmp.mapping.complete(),
+--       ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+--       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+--       ['<C-d>'] = cmp.mapping.scroll_docs(4),
+--       ['<CR>'] = cmp.mapping.confirm({select = true}),
+--   }),
+-- })
 
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'rust_analyzer',
-    -- 'ts_ls',
+vim.lsp.config('ts_ls', {
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vim.fn.stdpath('data') ..
+        '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+        languages = {'javascript', 'typescript', 'vue'}
+      },
+    }
   },
-  handlers = {
-    bashls = function() 
-      require('lspconfig').bashls.setup({})
-    end,
-    ts_ls = function()
-      local vue_typescript_plugin = require('mason-registry')
-      .get_package('vue-language-server')
-      :get_install_path()
-      .. '/node_modules/@vue/language-server'
-      .. '/node_modules/@vue/typescript-plugin'
-
-      require('lspconfig').ts_ls.setup({
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vue_typescript_plugin,
-              languages = {'javascript', 'typescript', 'vue'}
-            },
-          }
-        },
-        filetypes = {
-          'javascript',
-          'javascriptreact',
-          'javascript.jsx',
-          'typescript',
-          'typescriptreact',
-          'typescript.tsx',
-          'vue',
-        },
-      })
-    end,
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript.tsx',
   },
 })
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('vue_ls')
+
+vim.lsp.enable('bashls')
