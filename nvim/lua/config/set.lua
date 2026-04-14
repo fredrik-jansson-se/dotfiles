@@ -62,4 +62,11 @@ vim.g.copilot_filetypes = {
 
 -- Add no select to force manual selection of items
 vim.opt.completeopt =  { "menu", "menuone", "noselect", "popup" }
-vim.o.autocomplete = true
+vim.opt.autocomplete = true
+
+-- vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter"}, {
+--   pattern = {"*.rs", "*.py"},
+--   callback = function(event)
+--       vim.o.autocomplete = true
+--   end,
+-- })

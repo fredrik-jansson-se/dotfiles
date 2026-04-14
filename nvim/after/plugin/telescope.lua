@@ -15,3 +15,11 @@ require('telescope').setup {
     }
   }
 }
+
+-- Disable autocomplete in the popup
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopePrompt",
+  callback = function()
+    vim.opt_local.autocomplete = false
+  end,
+})
