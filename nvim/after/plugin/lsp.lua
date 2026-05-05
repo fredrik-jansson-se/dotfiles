@@ -44,25 +44,64 @@ vim.keymap.set('i', '<CR>', function()
 --   }),
 -- })
 
-vim.lsp.config('ts_ls', {
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = vim.fn.stdpath('data') ..
-        '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-        languages = {'javascript', 'typescript', 'vue'}
-      },
-    }
+require("mason-lspconfig").setup {
+   ensure_installed = {
+    'rust_analyzer',
+    -- 'ts_ls',
   },
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript.tsx',
-  },
-})
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('vue_ls')
+  handlers = {
+    bashls = function()
+      require('lspconfig').bashls.setup({})
+    end,
+    ts_ls = function()
+      local vue_typescript_plugin = require('mason-registry')
+      .get_package('vue-language-server')
+      :get_install_path()
+      .. '/node_modules/@vue/language-server'
+      .. '/node_modules/@vue/typescript-plugin'
 
-vim.lsp.enable('bashls')
+      require('lspconfig').ts_ls.setup({
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vue_typescript_plugin,
+              languages = {'javascript', 'typescript', 'vue'}
+            },
+          }
+        },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+          'vue',
+        },
+      })
+    end,
+  },
+}
+-- vim.lsp.config('ts_ls', {
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = vim.fn.stdpath('data') ..
+--         '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+--         languages = {'javascript', 'typescript', 'vue'}
+--       },
+--     }
+--   },
+--   filetypes = {
+--     'javascript',
+--     'javascriptreact',
+--     'javascript.jsx',
+--     'typescript.tsx',
+--   },
+-- })
+-- vim.lsp.enable('ts_ls')
+-- vim.lsp.enable('vue_ls')
+--
+-- vim.lsp.enable('bashls')

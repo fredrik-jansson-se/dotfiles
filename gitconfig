@@ -1,6 +1,5 @@
 [user]
 	name = Fredrik Jansson
-	email = fj@avassa.io
 [pull]
 	rebase = true
 [rebase]
@@ -15,7 +14,6 @@
 	enabled = true
 [core]
 	pager = delta
-	hooksPath = ~/dotfiles/git-hooks
 [diff]
 	algorithm = histogram
 [interactive]
