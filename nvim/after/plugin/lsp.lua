@@ -12,6 +12,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
       vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
       vim.keymap.set('n', '<leader>fb', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+
+      local client = vim.lsp.get_client_by_id(ev.data.client_id)
+      if client and client:supports_method('textDocument/inlayHint') then
+        vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+      end
     end,
 })
 
@@ -22,66 +27,46 @@ vim.keymap.set('i', '<CR>', function()
     return '<CR>'
   end, { expr = true })
 
--- local cmp = require('cmp')
---
--- cmp.setup({
---   sources = {
---     { name = 'nvim_lsp' },
---     { name = 'buffer' },
---   },
---   snippet = {
---     expand = function(args) 
---       vim.snippet.expand(args.body)
---     end,
---   },
---   mapping = cmp.mapping.preset.insert({
---       ['<Alt-Space>'] = cmp.mapping.complete(),
---       ['<C-f>'] = cmp.mapping.scroll_docs(4),
---       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
---       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
---       ['<C-d>'] = cmp.mapping.scroll_docs(4),
---       ['<CR>'] = cmp.mapping.confirm({select = true}),
---   }),
--- })
-
 require("mason-lspconfig").setup {
    ensure_installed = {
     'rust_analyzer',
-    -- 'ts_ls',
   },
-  handlers = {
-    bashls = function()
-      require('lspconfig').bashls.setup({})
-    end,
-    ts_ls = function()
-      local vue_typescript_plugin = require('mason-registry')
-      .get_package('vue-language-server')
-      :get_install_path()
-      .. '/node_modules/@vue/language-server'
-      .. '/node_modules/@vue/typescript-plugin'
-
-      require('lspconfig').ts_ls.setup({
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vue_typescript_plugin,
-              languages = {'javascript', 'typescript', 'vue'}
-            },
-          }
-        },
-        filetypes = {
-          'javascript',
-          'javascriptreact',
-          'javascript.jsx',
-          'typescript',
-          'typescriptreact',
-          'typescript.tsx',
-          'vue',
-        },
-      })
-    end,
+  automatic_enable = {
+    exclude = { 'rust_analyzer' }, -- rustaceanvim manages LSP setup
   },
+  -- handlers = {
+  --   bashls = function()
+  --     require('lspconfig').bashls.setup({})
+  --   end,
+  --   ts_ls = function()
+  --     local vue_typescript_plugin = require('mason-registry')
+  --     .get_package('vue-language-server')
+  --     :get_install_path()
+  --     .. '/node_modules/@vue/language-server'
+  --     .. '/node_modules/@vue/typescript-plugin'
+  --
+  --     require('lspconfig').ts_ls.setup({
+  --       init_options = {
+  --         plugins = {
+  --           {
+  --             name = "@vue/typescript-plugin",
+  --             location = vue_typescript_plugin,
+  --             languages = {'javascript', 'typescript', 'vue'}
+  --           },
+  --         }
+  --       },
+  --       filetypes = {
+  --         'javascript',
+  --         'javascriptreact',
+  --         'javascript.jsx',
+  --         'typescript',
+  --         'typescriptreact',
+  --         'typescript.tsx',
+  --         'vue',
+  --       },
+  --     })
+  --   end,
+  -- },
 }
 -- vim.lsp.config('ts_ls', {
 --   init_options = {
@@ -101,7 +86,8 @@ require("mason-lspconfig").setup {
 --     'typescript.tsx',
 --   },
 -- })
--- vim.lsp.enable('ts_ls')
+vim.lsp.enable('ts_ls')
 -- vim.lsp.enable('vue_ls')
 --
--- vim.lsp.enable('bashls')
+vim.lsp.enable('bashls')
+
