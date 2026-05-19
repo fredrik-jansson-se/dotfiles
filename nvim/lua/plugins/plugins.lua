@@ -29,28 +29,18 @@ return {
     branch = 'master',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
-  -- {
-  --   { 'hrsh7th/nvim-cmp' }
-  -- },
-  -- {
-  --   { 'hrsh7th/cmp-nvim-lsp' }
-  -- },
   {
     'mrcjkb/rustaceanvim',
-    branch = 'master'
+    branch = 'master',
+    lazy=false,
   },
   {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {},
-    dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
-        -- "neovim/nvim-lspconfig",
-    },
+    "mason-org/mason.nvim",
+    opts = {}
   },
-  -- {
-  --   "mason-org/mason.nvim",
-  --   opts = {}
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+  },
   {
     "catppuccin/nvim",
     name = "catppuccin",

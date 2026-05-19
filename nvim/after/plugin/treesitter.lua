@@ -1,4 +1,4 @@
-require'nvim-treesitter'.install { 'rust', 'cpp', 'dockerfile' }
+require'nvim-treesitter'.install { 'rust', 'dockerfile' }
 
 -- require('nvim-treesitter.configs').setup({
 --   highlight = { enable = true },

@@ -19,8 +19,6 @@ vim.opt.smartcase = true
 --vim.opt.wrapscan = false
 
 vim.opt.termguicolors = true
--- vim.opt.background="dark"
--- vim.cmd 'colorscheme vim'
 vim.cmd 'colorscheme catppuccin-mocha'
 
 vim.opt.scrolloff = 8
@@ -56,17 +54,6 @@ vim.g.python3_host_prog = os.getenv("HOME") .. '/nvim-venv/bin/python3'
 -- vim.opt.foldmethod='syntax'
 vim.opt.diffopt="internal,filler,closeoff,linematch:40,vertical"
 
-vim.g.copilot_filetypes = {
-  ["*"] = false,
-}
-
 -- Add no select to force manual selection of items
 vim.opt.completeopt =  { "menu", "menuone", "noselect", "popup" }
 vim.opt.autocomplete = true
-
--- vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter"}, {
---   pattern = {"*.rs", "*.py"},
---   callback = function(event)
---       vim.o.autocomplete = true
---   end,
--- })

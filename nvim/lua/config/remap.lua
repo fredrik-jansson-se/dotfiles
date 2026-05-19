@@ -25,6 +25,3 @@ vim.keymap.set("n", "/", "/\\v")
 vim.keymap.set("n", "L", function()
   vim.diagnostic.open_float()
 end)
-
--- copilot
-vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
