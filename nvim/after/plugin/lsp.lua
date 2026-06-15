@@ -61,3 +61,4 @@ vim.lsp.enable({ 'vtsls', 'vue_ls' })
 
 -- Bash
 vim.lsp.enable('bashls')
+vim.lsp.enable({ 'ty', 'ruff'})
